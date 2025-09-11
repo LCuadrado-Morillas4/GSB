@@ -1,5 +1,4 @@
 <?php
-
 /**
  * Vue Connexion
  *
@@ -15,38 +14,35 @@
  * @link      http://www.reseaucerta.org Contexte « Laboratoire GSB »
  * @link      https://getbootstrap.com/docs/3.3/ Documentation Bootstrap v3
  */
-
 ?>
 <div class="row">
-    <div class="col-md-6 col-md-offset-3">
-        <div class="panel panel-default">
-            <div class="panel-heading">
-                <h3 class="panel-title">Identification utilisateur</h3>
+    <div class="col-md-6 offset-md-3">
+        <div class="card">
+            <div class="card-header">
+                <h3 class="card-title mb-0">Identification utilisateur</h3>
             </div>
-            <div class="panel-body">
-                <form role="form" method="post" 
-                      action="index.php?uc=connexion&action=valideConnexion">
+            <div class="card-body">
+                <form method="post" action="index.php?uc=connexion&action=valideConnexion">
                     <fieldset>
-                        <div class="form-group">
+                        <div class="mb-3">
                             <div class="input-group">
-                                <span class="input-group-addon">
-                                    <i class="glyphicon glyphicon-user"></i>
+                                <span class="input-group-text">
+                                    <i class="bi bi-person-fill"></i>
                                 </span>
                                 <input class="form-control" placeholder="Login"
                                        name="login" type="text" maxlength="45">
                             </div>
                         </div>
-                        <div class="form-group">
+                        <div class="mb-3">
                             <div class="input-group">
-                                <span class="input-group-addon">
-                                    <i class="glyphicon glyphicon-lock"></i>
+                                <span class="input-group-text">
+                                    <i class="bi bi-lock-fill"></i>
                                 </span>
-                                <input class="form-control"
-                                       placeholder="Mot de passe" name="mdp"
-                                       type="password" maxlength="45">
+                                <input class="form-control" placeholder="Mot de passe"
+                                       name="mdp" type="password" maxlength="45">
                             </div>
                         </div>
-                        <input class="btn btn-lg btn-success btn-block"
+                        <input class="btn btn-success btn-lg w-100"
                                type="submit" value="Se connecter">
                     </fieldset>
                 </form>
