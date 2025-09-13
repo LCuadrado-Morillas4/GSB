@@ -1,5 +1,4 @@
 <?php
-
 /**
  * Vue Pied de page
  *
@@ -15,15 +14,14 @@
  * @link      http://www.reseaucerta.org Contexte « Laboratoire GSB »
  * @link      https://getbootstrap.com/docs/3.3/ Documentation Bootstrap v3
  */
-
 ?>
-        </div>
-		<footer class="footer">
-			<div class="container">
-				<p class="text-muted">© GSB 2026</p>
-			</div>
-		</footer>
-    </body>
+</div>
+<footer class="footer">
+    <div class="container">
+        <p class="text-muted">© GSB 2026</p>
+    </div>
+</footer>
+</body>
 </html>
 
 
