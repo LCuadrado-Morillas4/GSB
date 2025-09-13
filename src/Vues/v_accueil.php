@@ -22,7 +22,7 @@
     <h2>
         Gestion des frais 
         <small class="text-muted"> - Visiteur : 
-<?= $_SESSION['prenom'] . ' ' . $_SESSION['nom'] ?></small>
+            <?= $_SESSION['prenom'] . ' ' . $_SESSION['nom'] ?></small>
     </h2>
 </div>
 

@@ -34,10 +34,10 @@
     </head>
     <body>
         <div class="container">
-<?php
-$uc = filter_input(INPUT_GET, 'uc', FILTER_SANITIZE_FULL_SPECIAL_CHARS);
-if ($estConnecte) {
-    ?>
+            <?php
+            $uc = filter_input(INPUT_GET, 'uc', FILTER_SANITIZE_FULL_SPECIAL_CHARS);
+            if ($estConnecte) {
+                ?>
                 <div class="header">
                     <div class="row align-items-center">
                         <div class="col-md-4">
@@ -77,15 +77,15 @@ if ($estConnecte) {
                         </div>
                     </div>
                 </div>
-    <?php
-} else {
-    ?>
+                <?php
+            } else {
+                ?>
                 <h1 class="text-center">
                     <img src="./images/logo.jpg"
                          class="img-fluid mx-auto d-block"
                          alt="Laboratoire Galaxy-Swiss Bourdin"
                          title="Laboratoire Galaxy-Swiss Bourdin">
                 </h1>
-    <?php
-}
-?>
+                <?php
+            }
+            ?>
