@@ -46,6 +46,9 @@
                                type="submit" value="Se connecter">
                     </fieldset>
                 </form>
+                <div>
+                    <p> Identifiant : p.ayot<br> Mot de passe : xiej3uuY0 </p>
+                </div>
             </div>
         </div>
     </div>
