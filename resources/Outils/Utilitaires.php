@@ -26,23 +26,24 @@ abstract class Utilitaires
      */
     public static function estConnecte(): bool
     {
-        return isset($_SESSION['idVisiteur']);
+        return isset($_SESSION['id']); // BY LC4
     }
 
-    /**
-     * Enregistre dans une variable session les infos d'un visiteur
+    /** BY LC4 (Connexion Comptable)
+     * Enregistre dans une variable session les infos & le rôle d'un utilisateur
      *
-     * @param String $idVisiteur ID du visiteur
-     * @param String $nom        Nom du visiteur
-     * @param String $prenom     Prénom du visiteur
+     * @param String $id     ID de l'utilisateur
+     * @param String $nom    Nom de l'utilisateur
+     * @param String $prenom Prénom de l'utilisateur
      *
      * @return null
      */
-    public static function connecter($idVisiteur, $nom, $prenom): void
+    public static function connecter($id, $nom, $prenom, $role): void
     {
-        $_SESSION['idVisiteur'] = $idVisiteur;
+        $_SESSION['id'] = $id;
         $_SESSION['nom'] = $nom;
         $_SESSION['prenom'] = $prenom;
+        $_SESSION['role'] = $role;
     }
 
     /**
