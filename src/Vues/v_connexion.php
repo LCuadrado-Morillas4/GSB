@@ -47,7 +47,8 @@
                     </fieldset>
                 </form>
                 <div>
-                    <p> Identifiant : p.ayot<br> Mot de passe : xiej3uuY0 </p>
+                    <p> Identifiant Visiteur : p.ayot<br> Mot de passe : xiej3uuY0 </p>
+                    <p> Identifiant Comptable : fpontarelli<br> Mot de passe : Gt9!kP_2#R </p>
                 </div>
             </div>
         </div>
