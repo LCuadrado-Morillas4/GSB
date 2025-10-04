@@ -35,6 +35,7 @@ abstract class Utilitaires
      * @param String $id     ID de l'utilisateur
      * @param String $nom    Nom de l'utilisateur
      * @param String $prenom Prénom de l'utilisateur
+     * @param String $role   Rôle de l'utilisateur
      *
      * @return null
      */

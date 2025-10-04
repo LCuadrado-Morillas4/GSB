@@ -16,8 +16,8 @@
  */
 
 if ($estConnecte) {
-    include_once PATH_VIEWS . 'v_entete.php';
-	include PATH_VIEWS . 'v_accueil.php';
+    include_once PATH_VIEWS . 'v_entete' . $_SESSION['role'] . '.php';
+    include PATH_VIEWS . 'v_accueil' . $_SESSION['role'] . '.php';
 } else {
     include PATH_VIEWS . 'v_connexion.php';
 }
