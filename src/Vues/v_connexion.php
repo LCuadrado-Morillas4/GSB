@@ -48,7 +48,7 @@
                 </form>
                 <div>
                     <p> Identifiant Visiteur : p.ayot<br> Mot de passe : xiej3uuY0 </p>
-                    <p> Identifiant Comptable : fpontarelli<br> Mot de passe : Gt9!kP_2#R </p>
+                    <p> Identifiant Comptable : fpontarelli<br> Mot de passe : Gt9!kP_2#R / 1hdb7c_A </p>
                 </div>
             </div>
         </div>

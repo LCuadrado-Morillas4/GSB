@@ -50,25 +50,25 @@
                         <div class="col-md-8">
                             <ul class="nav nav-pills justify-content-end">
                                 <li class="nav-item">
-                                    <a class="nav-link <?php if (!$uc || $uc == 'accueil') echo 'active'; ?> bg-warning" href="index.php">
+                                    <a class="nav-link <?php if (!$uc || $uc == 'accueil') { ?>active bg-warning text-white<?php } ?> text-warning" href="index.php">
                                         <i class="bi bi-house-fill"></i>
                                         Accueil
                                     </a>
                                 </li>
                                 <li class="nav-item">
-                                    <a class="nav-link <?php if ($uc == 'gererFrais') echo 'active'; ?> text-warning" href="index.php?uc=gererFrais&action=saisirFrais">
-                                        <i class="bi bi-pencil-fill"></i>
-                                        Renseigner la fiche de frais
+                                    <a class="nav-link <?php if ($uc == 'validerFrais') { ?>active bg-warning text-white<?php } ?> text-warning" href="index.php?uc=validerFrais&action=validerFrais">
+                                        <i class="bi bi-check"></i>
+                                        Valider fiche de frais
                                     </a>
                                 </li>
                                 <li class="nav-item">
-                                    <a class="nav-link <?php if ($uc == 'etatFrais') echo 'active'; ?> text-warning" href="index.php?uc=etatFrais&action=selectionnerMois">
-                                        <i class="bi bi-list-ul"></i>
-                                        Afficher mes fiches de frais
+                                    <a class="nav-link <?php if ($uc == 'suivrePaiement') { ?>active bg-warning text-white<?php } ?> text-warning" href="index.php?uc=suivrePaiement&action=suivrePaiement">
+                                        <i class="bi bi-currency-euro"></i>
+                                        Suivre paiement fiches de frais
                                     </a>
                                 </li>
                                 <li class="nav-item">
-                                    <a class="nav-link <?php if ($uc == 'deconnexion') echo 'active'; ?> text-warning" href="index.php?uc=deconnexion&action=demandeDeconnexion">
+                                    <a class="nav-link <?php if ($uc == 'deconnexion') { ?>active bg-warning text-white<?php } ?> text-warning" href="index.php?uc=deconnexion&action=demandeDeconnexion">
                                         <i class="bi bi-box-arrow-right"></i>
                                         Déconnexion
                                     </a>

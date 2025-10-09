@@ -25,7 +25,11 @@ session_start();
 $pdo = PdoGsb::getPdoGsb();
 $estConnecte = Utilitaires::estConnecte();
 
-require PATH_VIEWS . 'v_entetevisiteur.php';
+if (!$estConnecte) {
+    require PATH_VIEWS . 'v_entetevisiteur.php';
+} elseif ($_SESSION['role'] === 'comptable') {
+    require PATH_VIEWS . 'v_entetecomptable.php';
+}
 
 $uc = filter_input(INPUT_GET, 'uc', FILTER_SANITIZE_FULL_SPECIAL_CHARS);
 
@@ -47,6 +51,12 @@ switch ($uc) {
         break;
     case 'etatFrais':
         include PATH_CTRLS . 'c_etatFrais.php';
+        break;
+    case 'validerFrais':
+        include PATH_CTRLS . 'c_validerFrais.php';
+        break;
+    case 'suivrePaiement':
+        include PATH_CTRLS . 'c_suivrePaiement.php';
         break;
     case 'deconnexion':
         include PATH_CTRLS . 'c_deconnexion.php';
