@@ -54,7 +54,7 @@ switch ($action) {
             $id = $visiteur['id'];
             $nom = $visiteur['nom'];
             $prenom = $visiteur['prenom'];
-            $role = "Visiteur";
+            $role = "visiteur";
             Utilitaires::connecter($id, $nom, $prenom, $role);
             header('Location: index.php');
         }
