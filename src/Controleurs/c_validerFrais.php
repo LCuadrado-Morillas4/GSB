@@ -1,7 +1,6 @@
 <?php
-
-/**
- * Gestion de l'accueil
+/** BY LC4
+ * Vue Accueil Comptable
  *
  * PHP Version 8
  *
@@ -13,11 +12,9 @@
  * @license   Réseau CERTA
  * @version   GIT: <0>
  * @link      http://www.reseaucerta.org Contexte « Laboratoire GSB »
+ * 
  */
 
-if ($estConnecte) {
-    include_once PATH_VIEWS . 'v_entete.php';
-    include PATH_VIEWS . 'v_accueil' . $_SESSION['role'] . '.php';
-} else {
-    include PATH_VIEWS . 'v_connexion.php';
-}
+
+
+require PATH_VIEWS . 'v_validerFrais.php';

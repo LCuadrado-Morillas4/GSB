@@ -1,7 +1,6 @@
 <?php
-
-/**
- * Gestion de l'accueil
+/** BY LC4
+ * Vue Accueil Comptable
  *
  * PHP Version 8
  *
@@ -14,10 +13,11 @@
  * @version   GIT: <0>
  * @link      http://www.reseaucerta.org Contexte « Laboratoire GSB »
  */
-
-if ($estConnecte) {
-    include_once PATH_VIEWS . 'v_entete.php';
-    include PATH_VIEWS . 'v_accueil' . $_SESSION['role'] . '.php';
-} else {
-    include PATH_VIEWS . 'v_connexion.php';
-}
+?>
+<div id="validerFrais">
+    <h2>
+        Valider fiches de frais  - PAGE À FAIRE
+        <small class="text-muted"> - Comptable : 
+            <?= $_SESSION['prenom'] . ' ' . $_SESSION['nom'] ?></small>
+    </h2>
+</div>
