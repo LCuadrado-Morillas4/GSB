@@ -34,15 +34,15 @@
             <div class="card-body">
                 <div class="row">
                     <div class="col-12">
-                        <a href="index.php?uc=validerFrais&action=validerFrais"
+                        <a href="index.php?uc=validerFrais&action=validerFrais" 
                            class="btn btn-success btn-lg" role="button">
                             <i class="bi bi-check"></i>
-                            <br>Valider les fiche de frais
+                            <br>Valider fiche de frais
                         </a>
-                        <a href="index.php?uc=suivreFrais&action=suivreFrais"
+                        <a href="index.php?uc=suivrePaiement&action=suivrePaiement"
                            class="btn btn-primary btn-lg" role="button">
                             <i class="bi bi-currency-euro"></i>
-                            <br>Suivre le paiement fiches de frais
+                            <br>Suivre paiement fiche de frais
                         </a>
                     </div>
                 </div>

@@ -77,13 +77,13 @@
                                     </a>
                                 </li>
                                 <li class="nav-item">
-                                    <a class="nav-link <?php if ($uc == 'gererFrais') { ?><?php echo $active ?><?php } ?> <?php echo $text ?> " href="index.php?uc=<?php echo $uc1 ?>&action=<?php echo $act1 ?>">
+                                    <a class="nav-link <?php if ($uc == $uc1) { ?><?php echo $active ?><?php } ?> <?php echo $text ?> " href="index.php?uc=<?php echo $uc1?>&action=<?php echo $act1?>">
                                         <span class="<?php echo $icon1 ?>"></span>
                                         <?php echo $txt1 ?> 
                                     </a>
                                 </li>
                                 <li class="nav-item">
-                                    <a class="nav-link <?php if ($uc == 'etatFrais') { ?><?php echo $active ?><?php } ?> <?php echo $text ?> " href="index.php?uc=<?php echo $uc2 ?>&action=<?php echo $act2 ?>">
+                                    <a class="nav-link <?php if ($uc == $uc2) { ?><?php echo $active ?><?php } ?> <?php echo $text ?> " href="index.php?uc=<?php echo $uc2?>&action=<?php echo $act2?>">
                                         <span class="<?php echo $icon2 ?>"></span>
                                         <?php echo $txt2 ?> 
                                     </a>
