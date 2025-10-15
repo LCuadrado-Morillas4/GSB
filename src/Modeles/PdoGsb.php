@@ -125,6 +125,30 @@ class PdoGsb
         $requetePrepare->execute();
         return $requetePrepare->fetch();
     }
+    /** BY LC4 TO DO
+     * Retourne sous forme d'un tableau associatif tous les visiteurs
+     * 
+     * @return tous les noms des visiteurs médicaux sous la forme d'un 
+     * tableau associatif
+     */
+    public function getLesVisiteurs(): array
+    {
+        $requetePrepare = $this->connexion->prepare(
+            'SELECT visiteur.nom AS nom, visiteur.prenom AS prenom '
+            . 'FROM visiteur'
+        );
+        $requetePrepare->execute();
+        $lesVisiteurs = array();
+        while ($visiteur = $requetePrepare->fetch()) {
+            $nomVisiteur = $visiteur['nom'];
+            $prenomVisiteur = $visiteur['prenom'];
+            $lesVisiteurs[] = array(
+                'nom' => $nomVisiteur,
+                'prenom' => $prenomVisiteur
+            );
+        }
+        return $lesVisiteurs;
+    }
 
     /**
      * Retourne sous forme d'un tableau associatif toutes les lignes de frais

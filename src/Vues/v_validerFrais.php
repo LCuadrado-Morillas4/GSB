@@ -14,25 +14,47 @@
  * @link      http://www.reseaucerta.org Contexte « Laboratoire GSB »
  */
 ?>
-<div> Choisir le visiteur : 
+<div>
+    <form
+        <label for="lstVisiteur" class="form-label" accesskey="n">Choisir le visiteur :</label>
+        <select id="lstVisiteur" name="lstVisiteur" class="form-select">
+            <?php
+            foreach ($lesVisiteurs as $unVisiteur) {
+                $visiteur = $unVisiteur;
+                if ($visiteur == $visiteurASelectionner) {
+                    ?>
+                    <option selected value="<?php echo $visiteur ?>">
+                        <?php echo $visiteur ?>
+                    </option>
+                    <?php
+                } else {
+                    ?>
+                    <option value="<?php echo $visiteur ?>">
+                        <?php echo $visiteur ?>
+                    </option>
+                    <?php
+                }
+            }
+            ?>
+        </select>
+    </form>
     <form
         <label for="lstMois" class="form-label" accesskey="n">Mois :</label>
         <select id="lstMois" name="lstMois" class="form-select">
             <?php
             foreach ($lesMois as $unMois) {
                 $mois = $unMois['mois'];
-                $numAnnee = $unMois['numAnnee'];
                 $numMois = $unMois['numMois'];
                 if ($mois == $moisASelectionner) {
                     ?>
                     <option selected value="<?php echo $mois ?>">
-                        <?php echo $numMois . '/' . $numAnnee ?>
+                        <?php echo $mois ?>
                     </option>
                     <?php
                 } else {
                     ?>
                     <option value="<?php echo $mois ?>">
-                        <?php echo $numMois . '/' . $numAnnee ?>
+                        <?php echo $mois ?>
                     </option>
                     <?php
                 }
@@ -46,23 +68,43 @@
         Valider la fiche de frais
     </h2>
 </div>
-<div>Éléments forfaitisés</div>
+<h3>Éléments forfaitisés</h3>
 <div>
-    <ul class="list-group">
-        <li class="list-group-item">
-            Forfait Étape
-        </li>
-        <li class="list-group-item">
-            Frais Kilométrique
-        </li>
-        <li class="list-group-item">
-            Nuitée Hôtel
-        </li>
-        <li class="list-group-item">
-            Repas Restaurant
-        </li>
-    </ul>
-
-    <button id="ok" type="submit" class="btn btn-success">Corriger</button>
-    <button id="annuler" type="reset" class="btn btn-danger">Réinitisaliser</button>
+    <form>
+        <fieldset>
+            <div>
+                Forfait Étape
+                <input type="text" id="idFrais" 
+                       name="lesFrais[<?php echo $idFrais ?>]"
+                       size="10" maxlength="5" 
+                       value="0" 
+                       class="form-control">
+            </div>
+            <div>
+                Frais Kilométrique
+                <input type="text" id="idFrais" 
+                       name="lesFrais[<?php echo $idFrais ?>]"
+                       size="10" maxlength="5" 
+                       value="0" 
+                       class="form-control">
+            </div>
+            <div>
+                Nuitée Hôtel
+                <input type="text" id="idFrais" 
+                       name="lesFrais[<?php echo $idFrais ?>]"
+                       size="10" maxlength="5" 
+                       value="0" 
+                       class="form-control">
+            </div>
+            <div>
+                Repas Restaurant
+                <input type="text" id="idFrais" 
+                       name="lesFrais[<?php echo $idFrais ?>]"
+                       size="10" maxlength="5" 
+                       value="0" 
+                       class="form-control">
+                BOUTONS À METTRE
+            </div>
+        </fieldset>
+    </form>
 </div>

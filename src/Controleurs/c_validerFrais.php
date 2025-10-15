@@ -15,6 +15,19 @@
  * 
  */
 
+$lesVisiteurs = $pdo->getLesVisiteurs();
+$visiteurASelectionner = "Ayot";
 
+$lesMois = array();
+$listeMois = array("Janvier", "Février", "Mars", "Avril", "Mai", "Juin" , "Juillet", "Août", "Septembre", "Octobre", "Novembre", "Décembre");
+foreach($listeMois as $unMois) {
+    $cpt = 1;
+    $lesMois[] = array(
+        'mois' => $unMois,
+        'numMois' => $cpt
+    );
+    $cpt++;
+}
+$moisASelectionner = "Janvier";
 
 require PATH_VIEWS . 'v_validerFrais.php';
