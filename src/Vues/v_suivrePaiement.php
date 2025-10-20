@@ -1,5 +1,5 @@
 <?php
-/** BY LC4
+/** 
  * Vue Accueil Comptable
  *
  * PHP Version 8

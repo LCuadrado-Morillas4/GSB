@@ -1,5 +1,6 @@
 <?php
-/** BY LC4
+
+/**
  * Vue Accueil Comptable
  *
  * PHP Version 8
@@ -14,20 +15,25 @@
  * @link      http://www.reseaucerta.org Contexte « Laboratoire GSB »
  * 
  */
+/*
+$action = filter_input(INPUT_GET, 'action', FILTER_SANITIZE_FULL_SPECIAL_CHARS);
+
+switch ($action) {
+    case 'selectionnerVisiteur' :
+        $lesVisiteurs = $pdo->getLesVisiteurs();
+        $visiteurASelectionner = $lesVisiteurs[0];
+        include PATH_VIEWS . 'v_listeVisiteurs.php';
+    case 'selectionnerMois' :
+        $lesMois = $pdo->getLesMoisDisponibles($visiteur['id']);
+        include PATH_VIEWS . 'v_listeMois.php';
+}*/
 
 $lesVisiteurs = $pdo->getLesVisiteurs();
-$visiteurASelectionner = "Ayot";
+$visiteurASelectionner = $lesVisiteurs[0];
 
-$lesMois = array();
-$listeMois = array("Janvier", "Février", "Mars", "Avril", "Mai", "Juin" , "Juillet", "Août", "Septembre", "Octobre", "Novembre", "Décembre");
-foreach($listeMois as $unMois) {
-    $cpt = 1;
-    $lesMois[] = array(
-        'mois' => $unMois,
-        'numMois' => $cpt
-    );
-    $cpt++;
-}
-$moisASelectionner = "Janvier";
+$lesMois = $pdo->getLesMoisDisponibles($visiteur['id']);
+$lesMois = $pdo->getLesMoisDisponibles($_POST['visiteur']['nom']);
+
+
 
 require PATH_VIEWS . 'v_validerFrais.php';

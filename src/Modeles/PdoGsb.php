@@ -104,7 +104,7 @@ class PdoGsb
         return $requetePrepare->fetch();
     }
 
-    /** BY LC4 (Connexion Comptable)
+    /**
      * Retourne les informations d'un comptable
      *
      * @param String $login Login du comptable
@@ -125,7 +125,7 @@ class PdoGsb
         $requetePrepare->execute();
         return $requetePrepare->fetch();
     }
-    /** BY LC4 TO DO
+    /** 
      * Retourne sous forme d'un tableau associatif tous les visiteurs
      * 
      * @return tous les noms des visiteurs médicaux sous la forme d'un 
@@ -134,15 +134,17 @@ class PdoGsb
     public function getLesVisiteurs(): array
     {
         $requetePrepare = $this->connexion->prepare(
-            'SELECT visiteur.nom AS nom, visiteur.prenom AS prenom '
+            'SELECT visiteur.id AS id, visiteur.nom AS nom, visiteur.prenom AS prenom '
             . 'FROM visiteur'
         );
         $requetePrepare->execute();
         $lesVisiteurs = array();
         while ($visiteur = $requetePrepare->fetch()) {
+            $idVisiteur = $visiteur['id'];
             $nomVisiteur = $visiteur['nom'];
             $prenomVisiteur = $visiteur['prenom'];
             $lesVisiteurs[] = array(
+                'id' => $idVisiteur,
                 'nom' => $nomVisiteur,
                 'prenom' => $prenomVisiteur
             );

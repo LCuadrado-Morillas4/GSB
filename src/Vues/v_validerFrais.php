@@ -1,5 +1,5 @@
 <?php
-/** BY LC4
+/**
  * Vue Accueil Comptable
  *
  * PHP Version 8
@@ -15,22 +15,22 @@
  */
 ?>
 <div>
-    <form
-        <label for="lstVisiteur" class="form-label" accesskey="n">Choisir le visiteur :</label>
-        <select id="lstVisiteur" name="lstVisiteur" class="form-select">
+    <form method="POST" action="index.php?uc=validerFrais&action=selectionnerVisiteur">
+        <label for="visiteur" class="form-label" accesskey="n">Choisir le visiteur :</label>
+        <select id="visiteur" name="visiteur" class="form-select">
             <?php
             foreach ($lesVisiteurs as $unVisiteur) {
                 $visiteur = $unVisiteur;
                 if ($visiteur == $visiteurASelectionner) {
                     ?>
-                    <option selected value="<?php echo $visiteur ?>">
-                        <?php echo $visiteur ?>
+                    <option selected value="<?php echo $visiteur['id'] ?>">
+                        <?php echo $visiteur['nom'] . " " . $visiteur['prenom'] ?>
                     </option>
                     <?php
                 } else {
                     ?>
-                    <option value="<?php echo $visiteur ?>">
-                        <?php echo $visiteur ?>
+                    <option value="<?php echo $visiteur['id'] ?>">
+                        <?php echo $visiteur['nom'] . " " . $visiteur['prenom'] ?>
                     </option>
                     <?php
                 }
@@ -44,17 +44,18 @@
             <?php
             foreach ($lesMois as $unMois) {
                 $mois = $unMois['mois'];
+                $numAnnee = $unMois['numAnnee'];
                 $numMois = $unMois['numMois'];
                 if ($mois == $moisASelectionner) {
                     ?>
                     <option selected value="<?php echo $mois ?>">
-                        <?php echo $mois ?>
+                        <?php echo $numMois . '/' . $numAnnee ?>
                     </option>
                     <?php
                 } else {
                     ?>
                     <option value="<?php echo $mois ?>">
-                        <?php echo $mois ?>
+                        <?php echo $numMois . '/' . $numAnnee ?>
                     </option>
                     <?php
                 }
@@ -63,8 +64,9 @@
         </select>
     </form>
 </div>
+<hr>
 <div>
-    <h2 class ="text-warning">
+    <h2 class="text-warning">
         Valider la fiche de frais
     </h2>
 </div>
@@ -103,8 +105,35 @@
                        size="10" maxlength="5" 
                        value="0" 
                        class="form-control">
-                BOUTONS À METTRE
             </div>
+            <button class="btn btn-success" type="submit">Corriger</button>
+            <button class="btn btn-danger" type="reset">Réinitialiser</button>
         </fieldset>
     </form>
+</div>
+<hr>
+<div class="row">
+    <div clas="card border-warning mb-3">
+        <div class="card-header bg-warning text-white">Descriptif des éléments hors forfais</div>
+        <div class="card-body">
+            <table class="table table-bordered table-responsive">
+                <thead class="table-light">
+                    <tr>
+                        <th class="date">Date</th>
+                        <th class="libelle">Libellé</th>
+                        <th class="montant">Montant</th>
+                        <th class="action">&nbsp;</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
 </div>
