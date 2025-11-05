@@ -15,7 +15,7 @@
  */
 ?>
 <div>
-    <form method="POST" action="index.php?uc=validerFrais&action=selectionnerVisiteur">
+    <form method="post" action="index.php?uc=validerFrais&action=selectionnerVisiteur" role="form">
         <label for="visiteur" class="form-label" accesskey="n">Choisir le visiteur :</label>
         <select id="visiteur" name="visiteur" class="form-select">
             <?php
@@ -38,7 +38,7 @@
             ?>
         </select>
     </form>
-    <form
+    <form method="POST" action="">
         <label for="lstMois" class="form-label" accesskey="n">Mois :</label>
         <select id="lstMois" name="lstMois" class="form-select">
             <?php

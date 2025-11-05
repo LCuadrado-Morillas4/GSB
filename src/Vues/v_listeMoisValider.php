@@ -1,6 +1,6 @@
 <?php
 /**
- * Vue Liste des visiteurs
+ * Vue Liste des mois
  *
  * PHP Version 8
  *
@@ -15,33 +15,28 @@
  * @link      https://getbootstrap.com/docs/3.3/ Documentation Bootstrap v3
  */
 ?>
-<div>
-    <h2 class="text-warning">
-        Valider la fiche de frais
-    </h2>
-</div>
 <div class="row">
     <div class="col-md-4">
-        <h3>Sélectionner un visiteur :</h3>
-    </div>
-    <div class="col-md-4">
         <form action="index.php?uc=validerFrais&action=selectionnerMois" 
-              method="post">
+              method="post" role="form">
             <div class="mb-3">
-                <label for="visiteur" class="form-label" accesskey="n">Visiteur :</label>
-                <select id="visiteur" name="visiteur" class="form-select">
+                <label for="lstMois" class="form-label" accesskey="n">Mois :</label>
+                <select id="lstMois" name="lstMois" class="form-select">
                     <?php
-                    foreach ($lesVisiteurs as $unVisiteur) {
-                        if ($unVisiteur == $visiteurASelectionner) {
+                    foreach ($lesMois as $unMois) {
+                        $mois = $unMois['mois'];
+                        $numAnnee = $unMois['numAnnee'];
+                        $numMois = $unMois['numMois'];
+                        if ($mois == $moisASelectionner) {
                             ?>
-                            <option selected value="<?php echo $unVisiteur['id'] ?>">
-                                <?php echo $unVisiteur['nom'] . ' ' . $unVisiteur['prenom'] ?>
+                            <option selected value="<?php echo $mois ?>">
+                                <?php echo $numMois . '/' . $numAnnee ?>
                             </option>
                             <?php
                         } else {
                             ?>
-                            <option value="<?php echo $unVisiteur['id'] ?>">
-                                <?php echo $unVisiteur['nom'] . ' ' . $unVisiteur['prenom'] ?>
+                            <option value="<?php echo $mois ?>">
+                                <?php echo $numMois . '/' . $numAnnee ?>
                             </option>
                             <?php
                         }

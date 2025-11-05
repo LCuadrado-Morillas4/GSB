@@ -125,6 +125,7 @@ class PdoGsb
         $requetePrepare->execute();
         return $requetePrepare->fetch();
     }
+    
     /** 
      * Retourne sous forme d'un tableau associatif tous les visiteurs
      * 

@@ -30,7 +30,6 @@ switch ($action) {
         $login = filter_input(INPUT_POST, 'login', FILTER_SANITIZE_FULL_SPECIAL_CHARS);
         $mdp = filter_input(INPUT_POST, 'mdp', FILTER_SANITIZE_FULL_SPECIAL_CHARS);
         
-        // BY LC4 (Connexion Comptable)
         if (strpos($login, '.') !== false) {
             $visiteur = $pdo->getInfosVisiteur($login, $mdp);
         } else {

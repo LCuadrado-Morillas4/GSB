@@ -1,7 +1,7 @@
 <?php
 
 /**
- * Vue Accueil Comptable
+ * Gestion validation des frais
  *
  * PHP Version 8
  *
@@ -15,7 +15,6 @@
  * @link      http://www.reseaucerta.org Contexte « Laboratoire GSB »
  * 
  */
-/*
 $action = filter_input(INPUT_GET, 'action', FILTER_SANITIZE_FULL_SPECIAL_CHARS);
 
 switch ($action) {
@@ -24,16 +23,7 @@ switch ($action) {
         $visiteurASelectionner = $lesVisiteurs[0];
         include PATH_VIEWS . 'v_listeVisiteurs.php';
     case 'selectionnerMois' :
-        $lesMois = $pdo->getLesMoisDisponibles($visiteur['id']);
-        include PATH_VIEWS . 'v_listeMois.php';
-}*/
-
-$lesVisiteurs = $pdo->getLesVisiteurs();
-$visiteurASelectionner = $lesVisiteurs[0];
-
-$lesMois = $pdo->getLesMoisDisponibles($visiteur['id']);
-$lesMois = $pdo->getLesMoisDisponibles($_POST['visiteur']['nom']);
-
-
-
-require PATH_VIEWS . 'v_validerFrais.php';
+        $leVisiteur = filter_input(INPUT_POST, 'visiteur', FILTER_SANITIZE_FULL_SPECIAL_CHARS);
+        $lesMois = $pdo->getLesMoisDisponibles($leVisiteur);
+        include PATH_VIEWS . 'v_listeMoisValider.php';
+}
