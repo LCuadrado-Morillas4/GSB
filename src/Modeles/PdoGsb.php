@@ -102,6 +102,35 @@ class PdoGsb
         $requetePrepare->bindParam(':unMdp', $mdp, PDO::PARAM_STR);
         $requetePrepare->execute();
         return $requetePrepare->fetch();
+    }    
+
+    /**
+     * Retourne les informations d'un visiteur
+     *
+     * @param String $idVisiteur id du visiteur
+     *
+     * @return l'id, le nom et le prénom sous la forme d'un tableau associatif
+     */
+    public function getInfosVisiteurById($idVisiteur): array
+    {
+        $requetePrepare = $this->connexion->prepare(
+            'SELECT visiteur.id AS id, visiteur.nom AS nom, '
+            . 'visiteur.prenom AS prenom '
+            . 'FROM visiteur '
+            . 'WHERE visiteur.id = :unId'
+        );
+        $requetePrepare->bindParam(':unId', $idVisiteur, PDO::PARAM_STR);
+        $requetePrepare->execute();
+        $visiteur = $requetePrepare->fetch();
+        $idVisiteur = $visiteur['id'];
+        $nomVisiteur = $visiteur['nom'];
+        $prenomVisiteur = $visiteur['prenom'];
+        $leVisiteur = array(
+            'id' => $idVisiteur,
+            'nom' => $nomVisiteur,
+            'prenom' => $prenomVisiteur,
+        );
+        return $leVisiteur;
     }
 
     /**
