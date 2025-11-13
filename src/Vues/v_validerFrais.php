@@ -14,101 +14,40 @@
  * @link      http://www.reseaucerta.org Contexte « Laboratoire GSB »
  */
 ?>
-<div>
-    <form method="post" action="index.php?uc=validerFrais&action=selectionnerVisiteur" role="form">
-        <label for="visiteur" class="form-label" accesskey="n">Choisir le visiteur :</label>
-        <select id="visiteur" name="visiteur" class="form-select">
-            <?php
-            foreach ($lesVisiteurs as $unVisiteur) {
-                $visiteur = $unVisiteur;
-                if ($visiteur == $visiteurASelectionner) {
-                    ?>
-                    <option selected value="<?php echo $visiteur['id'] ?>">
-                        <?php echo $visiteur['nom'] . " " . $visiteur['prenom'] ?>
-                    </option>
-                    <?php
-                } else {
-                    ?>
-                    <option value="<?php echo $visiteur['id'] ?>">
-                        <?php echo $visiteur['nom'] . " " . $visiteur['prenom'] ?>
-                    </option>
-                    <?php
-                }
-            }
-            ?>
-        </select>
-    </form>
-    <form method="POST" action="">
-        <label for="lstMois" class="form-label" accesskey="n">Mois :</label>
-        <select id="lstMois" name="lstMois" class="form-select">
-            <?php
-            foreach ($lesMois as $unMois) {
-                $mois = $unMois['mois'];
-                $numAnnee = $unMois['numAnnee'];
-                $numMois = $unMois['numMois'];
-                if ($mois == $moisASelectionner) {
-                    ?>
-                    <option selected value="<?php echo $mois ?>">
-                        <?php echo $numMois . '/' . $numAnnee ?>
-                    </option>
-                    <?php
-                } else {
-                    ?>
-                    <option value="<?php echo $mois ?>">
-                        <?php echo $numMois . '/' . $numAnnee ?>
-                    </option>
-                    <?php
-                }
-            }
-            ?>
-        </select>
-    </form>
-</div>
 <hr>
-<div>
-    <h2 class="text-warning">
-        Valider la fiche de frais
-    </h2>
-</div>
 <h3>Éléments forfaitisés</h3>
 <div>
-    <form>
-        <fieldset>
-            <div>
-                Forfait Étape
-                <input type="text" id="idFrais" 
-                       name="lesFrais[<?php echo $idFrais ?>]"
-                       size="10" maxlength="5" 
-                       value="0" 
-                       class="form-control">
-            </div>
-            <div>
-                Frais Kilométrique
-                <input type="text" id="idFrais" 
-                       name="lesFrais[<?php echo $idFrais ?>]"
-                       size="10" maxlength="5" 
-                       value="0" 
-                       class="form-control">
-            </div>
-            <div>
-                Nuitée Hôtel
-                <input type="text" id="idFrais" 
-                       name="lesFrais[<?php echo $idFrais ?>]"
-                       size="10" maxlength="5" 
-                       value="0" 
-                       class="form-control">
-            </div>
-            <div>
-                Repas Restaurant
-                <input type="text" id="idFrais" 
-                       name="lesFrais[<?php echo $idFrais ?>]"
-                       size="10" maxlength="5" 
-                       value="0" 
-                       class="form-control">
-            </div>
-            <button class="btn btn-success" type="submit">Corriger</button>
-            <button class="btn btn-danger" type="reset">Réinitialiser</button>
-        </fieldset>
+    <form method="post" action="index.php?uc=validerFrais&action=validerFrais">
+        <table class="table table-bordered align-middle">
+            <tr>
+                <?php
+                foreach ($lesFraisForfait as $unFraisForfait) {
+                    $libelle = $unFraisForfait['libelle'];
+                    ?>
+                    <th> <?php echo htmlspecialchars($libelle) ?> </th>
+                    <?php
+                }
+                ?>
+            </tr>
+            <tr>
+                <?php
+                foreach ($lesFraisForfait as $unFraisForfait) {
+                    $idFrais = $unFraisForfait['idfrais'];
+                    $quantite = $unFraisForfait['quantite'];
+                    ?>
+                    <td>
+                        <input type="text" id="idFrais" 
+                               name="lesFrais[<?php echo $idFrais ?>]"
+                               value="<?php echo $quantite ?>" 
+                               class="form-control">
+                    </td>
+                    <?php
+                }
+                ?>
+            </tr>
+        </table> 
+        <button id="ok" type="submit" class="btn btn-success">Corriger</button>
+        <button id="annuler" type="reset" class="btn btn-danger">Réinitialiser</button>
     </form>
 </div>
 <hr>
@@ -116,24 +55,60 @@
     <div clas="card border-warning mb-3">
         <div class="card-header bg-warning text-white">Descriptif des éléments hors forfais</div>
         <div class="card-body">
-            <table class="table table-bordered table-responsive">
-                <thead class="table-light">
+            <form method="post" action="index.php?uc=validerFrais&action=validerFrais">
+            <table class="table table-bordered border-warning table-responsive">
+                <thead>
                     <tr>
                         <th class="date">Date</th>
                         <th class="libelle">Libellé</th>
                         <th class="montant">Montant</th>
-                        <th class="action">&nbsp;</th>
                     </tr>
                 </thead>
                 <tbody>
-                    <tr>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                    </tr>
+                    <?php
+                    foreach ($lesFraisHorsForfait as $unFraisHorsForfait) {
+                        $idFraisHorsForfait = $unFraisHorsForfait['id'];
+                        $date = $unFraisHorsForfait['date'];
+                        $libelle = htmlspecialchars($unFraisHorsForfait['libelle']);
+                        $montant = $unFraisHorsForfait['montant'];
+                        ?>
+                        <tr>
+                            <td>
+                                <input type="text" id="idFraisHorsForfait" 
+                                       name="lesFraisHorsForfait[<?php echo $idFraisHorsForfait ?>]"
+                                       value="<?php echo $date ?>" 
+                                       class="form-control">
+                            </td>
+                            <td>
+                                <input type="text" id="idFraisHorsForfait" 
+                                       name="lesFraisHorsForfait[<?php echo $idFraisHorsForfait ?>]"
+                                       value="<?php echo $libelle ?>" 
+                                       class="form-control">
+                            </td>
+                            <td>
+                                <input type="text" id="idFraisHorsForfait" 
+                                       name="lesFraisHorsForfait[<?php echo $idFraisHorsForfait ?>]"
+                                       value="<?php echo $montant ?>" 
+                                       class="form-control">
+                            </td>
+                            <td>
+                                <button id="ok" type="submit" class="btn btn-success">Corriger</button>
+                                <button id="annuler" type="reset" class="btn btn-danger">Réinitialiser</button>
+                            </td>
+                        </tr>
+                        <?php
+                    }
+                    ?>
                 </tbody>
             </table>
+            </form>
+        </div>
+        <div>
+            <form>
+                Nombre de justificatifs : <input id="number" type="number" value="<?php echo $nbJustificatifs ?>"/><br>
+                <button id="ok" type="submit" class="btn btn-success">Corriger</button>
+                <button id="annuler" type="reset" class="btn btn-danger">Réinitialiser</button>
+            </form>
         </div>
     </div>
 </div>

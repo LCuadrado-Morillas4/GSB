@@ -18,7 +18,7 @@
 <hr>
 <div class="card border-primary mb-3">
     <div class="card-header bg-primary text-white">Fiche de frais du mois 
-<?php echo $numMois . '-' . $numAnnee ?> : </div>
+        <?php echo $numMois . '-' . $numAnnee ?> : </div>
     <div class="card-body">
         <strong><u>État :</u></strong> <?php echo $libEtat ?>
         depuis le <?php echo $dateModif ?> <br>
@@ -31,10 +31,10 @@
     <div class="table-responsive">
         <table class="table table-bordered align-middle">
             <tr>
-<?php
-foreach ($lesFraisForfait as $unFraisForfait) {
-    $libelle = $unFraisForfait['libelle'];
-    ?>
+                <?php
+                foreach ($lesFraisForfait as $unFraisForfait) {
+                    $libelle = $unFraisForfait['libelle'];
+                    ?>
                     <th><?php echo htmlspecialchars($libelle) ?></th>
                     <?php
                 }

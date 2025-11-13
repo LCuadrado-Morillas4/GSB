@@ -17,11 +17,14 @@
 ?>
 <div class="row">
     <div class="col-md-4">
-        <form action="index.php?uc=validerFrais&action=selectionnerFiche" 
+        <form action="index.php?uc=validerFrais&action=validerFrais" 
               method="post" role="form">
+            
+            <input type="hidden" name="visiteur" value="<?php echo $leVisiteur ?>">
+            
             <div class="mb-3">
-                <label for="lstMois" class="form-label" accesskey="n">Mois :</label>
-                <select id="lstMois" name="lstMois" class="form-select">
+                <label for="mois" class="form-label" accesskey="n">Mois :</label>
+                <select id="mois" name="mois" class="form-select">
                     <?php
                     foreach ($lesMois as $unMois) {
                         $mois = $unMois['mois'];

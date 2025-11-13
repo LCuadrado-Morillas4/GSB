@@ -107,11 +107,11 @@ class PdoGsb
     /**
      * Retourne les informations d'un visiteur
      *
-     * @param String $idVisiteur id du visiteur
+     * @param String $id id du visiteur
      *
      * @return l'id, le nom et le prénom sous la forme d'un tableau associatif
      */
-    public function getInfosVisiteurById($idVisiteur): array
+    public function getInfosVisiteurById($id): array
     {
         $requetePrepare = $this->connexion->prepare(
             'SELECT visiteur.id AS id, visiteur.nom AS nom, '
@@ -119,7 +119,7 @@ class PdoGsb
             . 'FROM visiteur '
             . 'WHERE visiteur.id = :unId'
         );
-        $requetePrepare->bindParam(':unId', $idVisiteur, PDO::PARAM_STR);
+        $requetePrepare->bindParam(':unId', $id, PDO::PARAM_STR);
         $requetePrepare->execute();
         $visiteur = $requetePrepare->fetch();
         $idVisiteur = $visiteur['id'];
