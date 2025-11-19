@@ -82,6 +82,8 @@ switch ($action) {
 
     case 'majFraisHorsForfait' :
         
+        
+        
         include PATH_VIEWS . 'v_listeVisiteurs.php';
         include PATH_VIEWS . 'v_listeMoisValider.php';
         include PATH_VIEWS . 'v_validerFrais.php';

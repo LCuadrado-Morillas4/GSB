@@ -61,7 +61,7 @@
 <div>
     <div class="card rounded border-warning mb-3">
         <div class="card-header bg-warning text-white">Descriptif des Éléments Hors Forfait</div>
-        <div class="card-body">
+        <div>
             <table class="table table-bordered border-warning table-responsive">
                 <thead>
                     <tr>
