@@ -102,7 +102,7 @@ class PdoGsb
         $requetePrepare->bindParam(':unMdp', $mdp, PDO::PARAM_STR);
         $requetePrepare->execute();
         return $requetePrepare->fetch();
-    }    
+    }
 
     /**
      * Retourne les informations d'un visiteur

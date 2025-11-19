@@ -20,7 +20,7 @@
         <form action="index.php?uc=validerFrais&action=validerFrais" 
               method="post" role="form">
             
-            <input type="hidden" name="visiteur" value="<?php echo $leVisiteur ?>">
+            <input type="hidden" name="visiteur" value="<?php echo $idVisiteur ?>">
             
             <div class="mb-3">
                 <label for="mois" class="form-label" accesskey="n">Mois :</label>

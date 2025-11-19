@@ -34,7 +34,7 @@
             <div class="card-body">
                 <div class="row">
                     <div class="col-12">
-                        <a href="index.php?uc=validerFrais&action=selectionnerVisiteur" 
+                        <a href="index.php?uc=validerFrais&action=selectionnerFiche" 
                            class="btn btn-success btn-lg" role="button">
                             <i class="bi bi-check"></i>
                             <br>Valider fiche de frais
