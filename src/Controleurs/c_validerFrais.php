@@ -81,9 +81,6 @@ switch ($action) {
         $lesFraisHorsL = filter_input(INPUT_POST, 'lesFraisHorsL', FILTER_SANITIZE_FULL_SPECIAL_CHARS);
         $lesFraisHorsM = filter_input(INPUT_POST, 'lesFraisHorsM', FILTER_SANITIZE_FULL_SPECIAL_CHARS);
 
-        $lesFraisHorsD = DateTime::createFromFormat('d/m/Y', $lesFraisHorsD);
-        $lesFraisHorsD->format('Y-m-d');
-
         $pdo->majFraisHorsForfait($idFraisHors, $lesFraisHorsD, $lesFraisHorsL, $lesFraisHorsM);
 
         $lesFraisHorsForfait = $pdo->getLesFraisHorsForfait($idVisiteur, $leMois);
@@ -92,4 +89,5 @@ switch ($action) {
         include PATH_VIEWS . 'v_listeMoisValider.php';
         include PATH_VIEWS . 'v_validerFrais.php';
         break;
+    case 'validerFicheFrais':
 }

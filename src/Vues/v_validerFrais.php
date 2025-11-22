@@ -1,6 +1,6 @@
 <?php
 /**
- * Vue Accueil Comptable
+ * Vue Valider Frais
  *
  * PHP Version 8
  *
@@ -59,6 +59,11 @@
     <div class="card border-warning mb-3">
         <div class="card-header bg-warning text-white">Descriptif des éléments hors forfais</div>
         <form method="post" action="index.php?uc=validerFrais&action=majFraisHorsForfait" onsubmit="return confirm('Voulez-vous valider les changements ?');">
+
+            <input type="hidden" name="visiteur" value="<?php echo $idVisiteur ?>">
+            <input type="hidden" name="mois" value="<?php echo $leMois ?>">
+            <input type="hidden" name="idFraisHors" value="<?php echo $idFraisHorsForfait ?>">
+
             <table class="table table-bordered border-warning table-responsive">
                 <thead>
                     <tr>
@@ -108,8 +113,13 @@
         </form>
     </div>
     <div>
-        <form method="post" action="index.php?uc=validerFrais&action=validerFicheFrais">
+        <form method="post" action="index.php?uc=validerFrais&action=validerFicheFrais" onsubmit="return confirm('Fonctionnalité non implémentée');">
+            
+            <input type="hidden" name="visiteur" value="<?php echo $idVisiteur ?>">
+            <input type="hidden" name="mois" value="<?php echo $leMois ?>">
+            
             Nombre de justificatifs : <input id="number" type="number" value="<?php echo $nbJustificatifs ?>"/><br>
+            
             <button id="ok" type="submit" class="btn btn-success">Corriger</button>
             <button id="annuler" type="reset" class="btn btn-danger">Réinitialiser</button>
         </form>
