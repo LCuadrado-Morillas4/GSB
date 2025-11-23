@@ -316,10 +316,10 @@ class PdoGsb
      * Met à jour la table ligneFraisHorsForfait pour un visiteur et
      * un mois donné en enregistrant les nouveaux montants
      *
-     * @param String $idVisiteur ID du visiteur
-     * @param String $mois       Mois sous la forme aaaamm
-     * @param Array  $lesFrais   tableau associatif de clé idFrais et
-     *                           de valeur la quantité pour ce frais
+     * @param String $idFraisHors ID du frais hors forfait
+     * @param String $date        date du frais
+     * @param String $libelle     libelle du frais
+     * @param String $montant     montant du frais
      *
      * @return null
      */
