@@ -17,7 +17,7 @@
 ?>
 <div class="row">
     <div class="col-md-4">
-        <form action="index.php?uc=validerFrais&action=validerFrais" 
+        <form action="index.php?uc=validerFrais&action=afficherFrais" 
               method="post" role="form">
             
             <input type="hidden" name="visiteur" value="<?php echo $idVisiteur ?>">

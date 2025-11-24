@@ -312,6 +312,34 @@ class PdoGsb
     }
 
     /**
+     * Met à jour la table ligneFraisHorsForfait
+     * Met à jour la table ligneFraisHorsForfait pour un visiteur et
+     * un mois donné en enregistrant les nouveaux montants
+     *
+     * @param String $idFraisHors ID du frais hors forfait
+     * @param String $date        date du frais
+     * @param String $libelle     libelle du frais
+     * @param String $montant     montant du frais
+     *
+     * @return null
+     */
+    public function majFraisHorsForfait($idFraisHors, $date, $libelle, $montant): void
+    {
+        $requetePrepare = $this->connexion->prepare(
+                'UPDATE lignefraishorsforfait '
+                . 'SET lignefraishorsforfait.date = :uneDate '
+                . ', lignefraishorsforfait.libelle = :unLibelle '
+                . ', lignefraishorsforfait.montant = :unMontant '
+                . 'WHERE lignefraishorsforfait.id = :unId'
+        );
+        $requetePrepare->bindParam(':uneDate', $date, PDO::PARAM_STR);
+        $requetePrepare->bindParam(':unLibelle', $libelle, PDO::PARAM_STR);
+        $requetePrepare->bindParam(':unMontant', $montant, PDO::PARAM_STR);
+        $requetePrepare->bindParam(':unId', $idFraisHors, PDO::PARAM_STR);
+        $requetePrepare->execute();
+    }
+
+    /**
      * Met à jour le nombre de justificatifs de la table ficheFrais
      * pour le mois et le visiteur concerné
      *

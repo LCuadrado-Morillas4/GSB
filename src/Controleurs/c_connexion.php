@@ -47,7 +47,7 @@ switch ($action) {
                 $prenom = $comptable['prenom'];
                 $role = "comptable";
                 Utilitaires::connecter($id, $nom, $prenom, $role);
-                header('Location : index.php');
+                header('Location: index.php');
             }
         } else {
             $id = $visiteur['id'];
