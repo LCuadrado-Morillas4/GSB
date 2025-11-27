@@ -52,7 +52,7 @@
                     $act1 = 'selectionnerFiche';
                     $txt2 = 'Suivre le paiement des fiches de frais';
                     $uc2 = 'suivrePaiement';
-                    $act2 = 'suivrePaiement';
+                    $act2 = 'selectionnerFiche';
                     $icon1 = 'bi bi-check';
                     $icon2 = 'bi bi-currency-euro';
                     $active = 'active bg-warning text-white';

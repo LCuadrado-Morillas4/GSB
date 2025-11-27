@@ -95,4 +95,11 @@ switch ($action) {
         break;
 
     case 'validerFicheFrais':
+        
+        $pdo->majEtatFicheFrais($idVisiteur, $leMois, "VA");
+
+        include PATH_VIEWS . 'v_listeVisiteurs.php';
+        include PATH_VIEWS . 'v_listeMoisValider.php';
+        include PATH_VIEWS . 'v_validerFrais.php';
+        break;
 }

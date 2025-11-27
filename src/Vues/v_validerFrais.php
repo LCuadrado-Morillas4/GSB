@@ -15,6 +15,9 @@
  */
 ?>
 <hr>
+<div>
+    <h2>État de la fiche de frais : <strong><?php echo $libEtat?></strong></h2>
+</div>
 <h3>Éléments forfaitisés</h3>
 <div>
     <form method="post" action="index.php?uc=validerFrais&action=majFraisForfait" onsubmit="return confirm('Voulez-vous valider les changements ?');">
@@ -116,26 +119,14 @@
         </table>
     </div>
     <div>
-        <form method="post" action="index.php?uc=validerFrais&action=validerFicheFrais" onsubmit="return confirm('Fonctionnalité non implémentée');">
+        <form method="post" action="index.php?uc=validerFrais&action=validerFicheFrais" onsubmit="return confirm('Voulez-vous valider cette fiche de frais ?');">
 
             <input type="hidden" name="visiteur" value="<?php echo $idVisiteur ?>">
             <input type="hidden" name="mois" value="<?php echo $leMois ?>">
 
-            Nombre de justificatifs : <input id="number" type="number" value="<?php echo $nbJustificatifs ?>"/><br>
-
-            <button id="ok" type="submit" class="btn btn-success">Corriger</button>
-            <button id="annuler" type="reset" class="btn btn-danger">Réinitialiser</button>
-        </form>
-    </div>
-    <div>
-        <form>
-            <label for="nbJustificatifs">Nombre de justificatifs : </label>
-            <input id="number" type="number" value="<?php echo $nbJustificatifs ?>" size="2" min="0" max="15"/><br><br><br>
-
-            <button id="ok" type="submit" class="btn btn-success">Valider La Fiche</button>
-
-            <input type="hidden" name="visiteur" value="<?php echo $idVisiteur ?>">
-            <input type="hidden" name="mois" value="<?php echo $leMois ?>">
+            <p>Nombre de justificatifs : <input id="number" type="number" value="<?php echo $nbJustificatifs ?>" size="2" min="0" max="15"/></p>
+                
+            <button id="ok" type="submit" class="btn btn-success">Valider la fiche de frais</button>
         </form>
     </div>
 </div>
