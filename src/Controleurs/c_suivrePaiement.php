@@ -26,7 +26,7 @@ $leMois = filter_input(INPUT_POST, 'mois', FILTER_SANITIZE_FULL_SPECIAL_CHARS);
 if (isset($idVisiteur)) {
     $visiteurASelectionner = $pdo->getInfosVisiteurById($idVisiteur);
     $moisASelectionner = $leMois;
-    $lesMois = $pdo->getLesMoisDisponibles($idVisiteur);
+    $lesMois = $pdo->getLesMoisDisponiblesARembourser($idVisiteur, "VA");
     if (isset($leMois)) {
         $lesFraisForfait = $pdo->getLesFraisForfait($idVisiteur, $leMois);
         $lesFraisHorsForfait = $pdo->getLesFraisHorsForfait($idVisiteur, $leMois);
@@ -41,14 +41,23 @@ if (isset($idVisiteur)) {
 switch ($action) {
     case 'selectionnerFiche' :
 
-        include PATH_VIEWS . 'v_listeVisiteurs.php';
-        include PATH_VIEWS . 'v_listeMoisValider.php';
+        include PATH_VIEWS . 'v_listeVisiteursASuivre.php';
+        include PATH_VIEWS . 'v_listeMoisASuivre.php';
         break;
 
     case 'afficherFrais':
 
-        include PATH_VIEWS . 'v_listeVisiteurs.php';
-        include PATH_VIEWS . 'v_listeMoisValider.php';
+        include PATH_VIEWS . 'v_listeVisiteursASuivre.php';
+        include PATH_VIEWS . 'v_listeMoisASuivre.php';
+        include PATH_VIEWS . 'v_suivrePaiement.php';
+        break;
+
+    case 'rembourserFiche':
+        
+        $pdo->majEtatFicheFrais($idVisiteur, $leMois, "RB");
+
+        include PATH_VIEWS . 'v_listeVisiteursASuivre.php';
+        include PATH_VIEWS . 'v_listeMoisASuivre.php';
         include PATH_VIEWS . 'v_suivrePaiement.php';
         break;
 }
