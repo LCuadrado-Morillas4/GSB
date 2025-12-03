@@ -246,6 +246,16 @@ Search.appendIndex(
             "summary": "Met\u0020\u00E0\u0020jour\u0020la\u0020table\u0020ligneFraisHorsForfait\nMet\u0020\u00E0\u0020jour\u0020la\u0020table\u0020ligneFraisHorsForfait\u0020pour\u0020un\u0020visiteur\u0020et\nun\u0020mois\u0020donn\u00E9\u0020en\u0020enregistrant\u0020les\u0020nouveaux\u0020montants",
             "url": "classes/Modeles-PdoGsb.html#method_majFraisHorsForfait"
         },                {
+            "fqsen": "\\Modeles\\PdoGsb\u003A\u003ArefuserFraisHorsForfait\u0028\u0029",
+            "name": "refuserFraisHorsForfait",
+            "summary": "Met\u0020\u00E0\u0020jour\u0020la\u0020table\u0020ligneFraisHorsForfait\u0020en\u0020ajoutant\n\u0022REFUSE\u0020\u003A\u0020\u0022\u0020au\u0020libell\u00E9\u0020du\u0020frais\u0020hors\u0020forfait",
+            "url": "classes/Modeles-PdoGsb.html#method_refuserFraisHorsForfait"
+        },                {
+            "fqsen": "\\Modeles\\PdoGsb\u003A\u003AreporterFraisHorsForfait\u0028\u0029",
+            "name": "reporterFraisHorsForfait",
+            "summary": "Met\u0020\u00E0\u0020jour\u0020la\u0020table\u0020ligneFraisHorsForfait\u0020en\u0020reportant\nles\u0020frais\u0020hors\u0020forfait\u0020au\u0020mois\u0020suivant",
+            "url": "classes/Modeles-PdoGsb.html#method_reporterFraisHorsForfait"
+        },                {
             "fqsen": "\\Modeles\\PdoGsb\u003A\u003AmajNbJustificatifs\u0028\u0029",
             "name": "majNbJustificatifs",
             "summary": "Met\u0020\u00E0\u0020jour\u0020le\u0020nombre\u0020de\u0020justificatifs\u0020de\u0020la\u0020table\u0020ficheFrais\npour\u0020le\u0020mois\u0020et\u0020le\u0020visiteur\u0020concern\u00E9",
@@ -261,10 +271,15 @@ Search.appendIndex(
             "summary": "Retourne\u0020le\u0020dernier\u0020mois\u0020en\u0020cours\u0020d\u0027un\u0020visiteur",
             "url": "classes/Modeles-PdoGsb.html#method_dernierMoisSaisi"
         },                {
-            "fqsen": "\\Modeles\\PdoGsb\u003A\u003AcreeNouvellesLignesFrais\u0028\u0029",
-            "name": "creeNouvellesLignesFrais",
+            "fqsen": "\\Modeles\\PdoGsb\u003A\u003AmoisSuivant\u0028\u0029",
+            "name": "moisSuivant",
+            "summary": "Retourne\u0020le\u0020mois\u0020suivant",
+            "url": "classes/Modeles-PdoGsb.html#method_moisSuivant"
+        },                {
+            "fqsen": "\\Modeles\\PdoGsb\u003A\u003AacreeNouvellesLignesFrais\u0028\u0029",
+            "name": "acreeNouvellesLignesFrais",
             "summary": "Cr\u00E9e\u0020une\u0020nouvelle\u0020fiche\u0020de\u0020frais\u0020et\u0020les\u0020lignes\u0020de\u0020frais\u0020au\u0020forfait\npour\u0020un\u0020visiteur\u0020et\u0020un\u0020mois\u0020donn\u00E9s",
-            "url": "classes/Modeles-PdoGsb.html#method_creeNouvellesLignesFrais"
+            "url": "classes/Modeles-PdoGsb.html#method_acreeNouvellesLignesFrais"
         },                {
             "fqsen": "\\Modeles\\PdoGsb\u003A\u003AcreeNouveauFraisHorsForfait\u0028\u0029",
             "name": "creeNouveauFraisHorsForfait",

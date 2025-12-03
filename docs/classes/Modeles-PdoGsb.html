@@ -129,7 +129,7 @@
         <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/Modeles/PdoGsb.php"><a href="files/src-modeles-pdogsb.html"><abbr title="src/Modeles/PdoGsb.php">PdoGsb.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">47</span>
+    <span class="phpdocumentor-element-found-in__line">46</span>
 
     </aside>
 
@@ -189,20 +189,20 @@
 objet donné, ou dans n&#039;importe quel ordre pendant la séquence d&#039;arrêt.</dd>
 
             <dt class="phpdocumentor-table-of-contents__entry -method -public">
+    <a class="" href="classes/Modeles-PdoGsb.html#method_acreeNouvellesLignesFrais">acreeNouvellesLignesFrais()</a>
+    <span>
+                                &nbsp;: null    </span>
+</dt>
+<dd>Crée une nouvelle fiche de frais et les lignes de frais au forfait
+pour un visiteur et un mois donnés</dd>
+
+            <dt class="phpdocumentor-table-of-contents__entry -method -public">
     <a class="" href="classes/Modeles-PdoGsb.html#method_creeNouveauFraisHorsForfait">creeNouveauFraisHorsForfait()</a>
     <span>
                                 &nbsp;: null    </span>
 </dt>
 <dd>Crée un nouveau frais hors forfait pour un visiteur un mois donné
 à partir des informations fournies en paramètre</dd>
-
-            <dt class="phpdocumentor-table-of-contents__entry -method -public">
-    <a class="" href="classes/Modeles-PdoGsb.html#method_creeNouvellesLignesFrais">creeNouvellesLignesFrais()</a>
-    <span>
-                                &nbsp;: null    </span>
-</dt>
-<dd>Crée une nouvelle fiche de frais et les lignes de frais au forfait
-pour un visiteur et un mois donnés</dd>
 
             <dt class="phpdocumentor-table-of-contents__entry -method -public">
     <a class="" href="classes/Modeles-PdoGsb.html#method_dernierMoisSaisi">dernierMoisSaisi()</a>
@@ -347,6 +347,29 @@ un mois donné en enregistrant les nouveaux montants</dd>
 pour le mois et le visiteur concerné</dd>
 
             <dt class="phpdocumentor-table-of-contents__entry -method -public">
+    <a class="" href="classes/Modeles-PdoGsb.html#method_moisSuivant">moisSuivant()</a>
+    <span>
+                                &nbsp;: <abbr title="\Modeles\le">le</abbr>    </span>
+</dt>
+<dd>Retourne le mois suivant</dd>
+
+            <dt class="phpdocumentor-table-of-contents__entry -method -public">
+    <a class="" href="classes/Modeles-PdoGsb.html#method_refuserFraisHorsForfait">refuserFraisHorsForfait()</a>
+    <span>
+                                &nbsp;: null    </span>
+</dt>
+<dd>Met à jour la table ligneFraisHorsForfait en ajoutant
+&quot;REFUSE : &quot; au libellé du frais hors forfait</dd>
+
+            <dt class="phpdocumentor-table-of-contents__entry -method -public">
+    <a class="" href="classes/Modeles-PdoGsb.html#method_reporterFraisHorsForfait">reporterFraisHorsForfait()</a>
+    <span>
+                                &nbsp;: null    </span>
+</dt>
+<dd>Met à jour la table ligneFraisHorsForfait en reportant
+les frais hors forfait au mois suivant</dd>
+
+            <dt class="phpdocumentor-table-of-contents__entry -method -public">
     <a class="" href="classes/Modeles-PdoGsb.html#method_supprimerFraisHorsForfait">supprimerFraisHorsForfait()</a>
     <span>
                                 &nbsp;: null    </span>
@@ -391,7 +414,7 @@ pour toutes les méthodes de la classe</dd>
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/Modeles/PdoGsb.php"><a href="files/src-modeles-pdogsb.html"><abbr title="src/Modeles/PdoGsb.php">PdoGsb.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">49</span>
+    <span class="phpdocumentor-element-found-in__line">48</span>
 
     </aside>
 
@@ -428,7 +451,7 @@ pour toutes les méthodes de la classe</dd>
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/Modeles/PdoGsb.php"><a href="files/src-modeles-pdogsb.html"><abbr title="src/Modeles/PdoGsb.php">PdoGsb.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">50</span>
+    <span class="phpdocumentor-element-found-in__line">49</span>
 
     </aside>
 
@@ -470,7 +493,7 @@ pour toutes les méthodes de la classe</dd>
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/Modeles/PdoGsb.php"><a href="files/src-modeles-pdogsb.html"><abbr title="src/Modeles/PdoGsb.php">PdoGsb.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">66</span>
+    <span class="phpdocumentor-element-found-in__line">64</span>
 
     </aside>
 
@@ -498,6 +521,71 @@ objet donné, ou dans n&#039;importe quel ordre pendant la séquence d&#039;arr�
             -public
                                                         "
 >
+    <h4 class="phpdocumentor-element__name" id="method_acreeNouvellesLignesFrais">
+        acreeNouvellesLignesFrais()
+        <a href="classes/Modeles-PdoGsb.html#method_acreeNouvellesLignesFrais" class="headerlink"><i class="fas fa-link"></i></a>
+
+    </h4>
+    <aside class="phpdocumentor-element-found-in">
+    <abbr class="phpdocumentor-element-found-in__file" title="src/Modeles/PdoGsb.php"><a href="files/src-modeles-pdogsb.html"><abbr title="src/Modeles/PdoGsb.php">PdoGsb.php</abbr></a></abbr>
+    :
+    <span class="phpdocumentor-element-found-in__line">495</span>
+
+    </aside>
+
+        <p class="phpdocumentor-summary">Crée une nouvelle fiche de frais et les lignes de frais au forfait
+pour un visiteur et un mois donnés</p>
+
+    <code class="phpdocumentor-code phpdocumentor-signature ">
+    <span class="phpdocumentor-signature__visibility">public</span>
+                    <span class="phpdocumentor-signature__name">acreeNouvellesLignesFrais</span><span>(</span><span class="phpdocumentor-signature__argument"><span class="phpdocumentor-signature__argument__type">string&nbsp;</span><span class="phpdocumentor-signature__argument__name">$idVisiteur</span></span><span class="phpdocumentor-signature__argument"><span>, </span><span class="phpdocumentor-signature__argument__type">string&nbsp;</span><span class="phpdocumentor-signature__argument__name">$mois</span></span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type">null</span></code>
+
+    <div class="phpdocumentor-label-line">
+        </div>
+    
+        <section class="phpdocumentor-description"><p>Récupère le dernier mois en cours de traitement, met à 'CL' son champs
+idEtat, crée une nouvelle fiche de frais avec un idEtat à 'CR' et crée
+les lignes de frais forfait de quantités nulles</p>
+</section>
+
+        <h5 class="phpdocumentor-argument-list__heading">Parameters</h5>
+    <dl class="phpdocumentor-argument-list">
+                    <dt class="phpdocumentor-argument-list__entry">
+                <span class="phpdocumentor-argument-list__argument__name">$idVisiteur</span>
+                : <span class="phpdocumentor-argument-list__argument__type">string</span>
+                            </dt>
+            <dd class="phpdocumentor-argument-list__definition">
+                    <section class="phpdocumentor-description"><p>ID du visiteur</p>
+</section>
+
+            </dd>
+                    <dt class="phpdocumentor-argument-list__entry">
+                <span class="phpdocumentor-argument-list__argument__name">$mois</span>
+                : <span class="phpdocumentor-argument-list__argument__type">string</span>
+                            </dt>
+            <dd class="phpdocumentor-argument-list__definition">
+                    <section class="phpdocumentor-description"><p>Mois sous la forme aaaamm</p>
+</section>
+
+            </dd>
+            </dl>
+
+    
+
+        
+    
+            <section>
+        <h5 class="phpdocumentor-return-value__heading">Return values</h5>
+        <span class="phpdocumentor-signature__response_type">null</span>
+            </section>
+
+</article>
+                    <article
+        class="phpdocumentor-element
+            -method
+            -public
+                                                        "
+>
     <h4 class="phpdocumentor-element__name" id="method_creeNouveauFraisHorsForfait">
         creeNouveauFraisHorsForfait()
         <a href="classes/Modeles-PdoGsb.html#method_creeNouveauFraisHorsForfait" class="headerlink"><i class="fas fa-link"></i></a>
@@ -506,7 +594,7 @@ objet donné, ou dans n&#039;importe quel ordre pendant la séquence d&#039;arr�
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/Modeles/PdoGsb.php"><a href="files/src-modeles-pdogsb.html"><abbr title="src/Modeles/PdoGsb.php">PdoGsb.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">470</span>
+    <span class="phpdocumentor-element-found-in__line">535</span>
 
     </aside>
 
@@ -586,71 +674,6 @@ objet donné, ou dans n&#039;importe quel ordre pendant la séquence d&#039;arr�
             -public
                                                         "
 >
-    <h4 class="phpdocumentor-element__name" id="method_creeNouvellesLignesFrais">
-        creeNouvellesLignesFrais()
-        <a href="classes/Modeles-PdoGsb.html#method_creeNouvellesLignesFrais" class="headerlink"><i class="fas fa-link"></i></a>
-
-    </h4>
-    <aside class="phpdocumentor-element-found-in">
-    <abbr class="phpdocumentor-element-found-in__file" title="src/Modeles/PdoGsb.php"><a href="files/src-modeles-pdogsb.html"><abbr title="src/Modeles/PdoGsb.php">PdoGsb.php</abbr></a></abbr>
-    :
-    <span class="phpdocumentor-element-found-in__line">429</span>
-
-    </aside>
-
-        <p class="phpdocumentor-summary">Crée une nouvelle fiche de frais et les lignes de frais au forfait
-pour un visiteur et un mois donnés</p>
-
-    <code class="phpdocumentor-code phpdocumentor-signature ">
-    <span class="phpdocumentor-signature__visibility">public</span>
-                    <span class="phpdocumentor-signature__name">creeNouvellesLignesFrais</span><span>(</span><span class="phpdocumentor-signature__argument"><span class="phpdocumentor-signature__argument__type">string&nbsp;</span><span class="phpdocumentor-signature__argument__name">$idVisiteur</span></span><span class="phpdocumentor-signature__argument"><span>, </span><span class="phpdocumentor-signature__argument__type">string&nbsp;</span><span class="phpdocumentor-signature__argument__name">$mois</span></span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type">null</span></code>
-
-    <div class="phpdocumentor-label-line">
-        </div>
-    
-        <section class="phpdocumentor-description"><p>Récupère le dernier mois en cours de traitement, met à 'CL' son champs
-idEtat, crée une nouvelle fiche de frais avec un idEtat à 'CR' et crée
-les lignes de frais forfait de quantités nulles</p>
-</section>
-
-        <h5 class="phpdocumentor-argument-list__heading">Parameters</h5>
-    <dl class="phpdocumentor-argument-list">
-                    <dt class="phpdocumentor-argument-list__entry">
-                <span class="phpdocumentor-argument-list__argument__name">$idVisiteur</span>
-                : <span class="phpdocumentor-argument-list__argument__type">string</span>
-                            </dt>
-            <dd class="phpdocumentor-argument-list__definition">
-                    <section class="phpdocumentor-description"><p>ID du visiteur</p>
-</section>
-
-            </dd>
-                    <dt class="phpdocumentor-argument-list__entry">
-                <span class="phpdocumentor-argument-list__argument__name">$mois</span>
-                : <span class="phpdocumentor-argument-list__argument__type">string</span>
-                            </dt>
-            <dd class="phpdocumentor-argument-list__definition">
-                    <section class="phpdocumentor-description"><p>Mois sous la forme aaaamm</p>
-</section>
-
-            </dd>
-            </dl>
-
-    
-
-        
-    
-            <section>
-        <h5 class="phpdocumentor-return-value__heading">Return values</h5>
-        <span class="phpdocumentor-signature__response_type">null</span>
-            </section>
-
-</article>
-                    <article
-        class="phpdocumentor-element
-            -method
-            -public
-                                                        "
->
     <h4 class="phpdocumentor-element__name" id="method_dernierMoisSaisi">
         dernierMoisSaisi()
         <a href="classes/Modeles-PdoGsb.html#method_dernierMoisSaisi" class="headerlink"><i class="fas fa-link"></i></a>
@@ -659,7 +682,7 @@ les lignes de frais forfait de quantités nulles</p>
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/Modeles/PdoGsb.php"><a href="files/src-modeles-pdogsb.html"><abbr title="src/Modeles/PdoGsb.php">PdoGsb.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">402</span>
+    <span class="phpdocumentor-element-found-in__line">444</span>
 
     </aside>
 
@@ -714,7 +737,7 @@ les lignes de frais forfait de quantités nulles</p>
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/Modeles/PdoGsb.php"><a href="files/src-modeles-pdogsb.html"><abbr title="src/Modeles/PdoGsb.php">PdoGsb.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">378</span>
+    <span class="phpdocumentor-element-found-in__line">421</span>
 
     </aside>
 
@@ -778,7 +801,7 @@ les lignes de frais forfait de quantités nulles</p>
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/Modeles/PdoGsb.php"><a href="files/src-modeles-pdogsb.html"><abbr title="src/Modeles/PdoGsb.php">PdoGsb.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">144</span>
+    <span class="phpdocumentor-element-found-in__line">138</span>
 
     </aside>
 
@@ -854,7 +877,7 @@ les lignes de frais forfait de quantités nulles</p>
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/Modeles/PdoGsb.php"><a href="files/src-modeles-pdogsb.html"><abbr title="src/Modeles/PdoGsb.php">PdoGsb.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">93</span>
+    <span class="phpdocumentor-element-found-in__line">89</span>
 
     </aside>
 
@@ -930,7 +953,7 @@ les lignes de frais forfait de quantités nulles</p>
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/Modeles/PdoGsb.php"><a href="files/src-modeles-pdogsb.html"><abbr title="src/Modeles/PdoGsb.php">PdoGsb.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">114</span>
+    <span class="phpdocumentor-element-found-in__line">109</span>
 
     </aside>
 
@@ -997,7 +1020,7 @@ les lignes de frais forfait de quantités nulles</p>
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/Modeles/PdoGsb.php"><a href="files/src-modeles-pdogsb.html"><abbr title="src/Modeles/PdoGsb.php">PdoGsb.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">248</span>
+    <span class="phpdocumentor-element-found-in__line">238</span>
 
     </aside>
 
@@ -1075,7 +1098,7 @@ associatif</p>
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/Modeles/PdoGsb.php"><a href="files/src-modeles-pdogsb.html"><abbr title="src/Modeles/PdoGsb.php">PdoGsb.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">197</span>
+    <span class="phpdocumentor-element-found-in__line">189</span>
 
     </aside>
 
@@ -1144,7 +1167,7 @@ d'un tableau associatif</p>
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/Modeles/PdoGsb.php"><a href="files/src-modeles-pdogsb.html"><abbr title="src/Modeles/PdoGsb.php">PdoGsb.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">272</span>
+    <span class="phpdocumentor-element-found-in__line">261</span>
 
     </aside>
 
@@ -1187,7 +1210,7 @@ d'un tableau associatif</p>
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/Modeles/PdoGsb.php"><a href="files/src-modeles-pdogsb.html"><abbr title="src/Modeles/PdoGsb.php">PdoGsb.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">610</span>
+    <span class="phpdocumentor-element-found-in__line">670</span>
 
     </aside>
 
@@ -1253,7 +1276,7 @@ et la ligne d'état</p>
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/Modeles/PdoGsb.php"><a href="files/src-modeles-pdogsb.html"><abbr title="src/Modeles/PdoGsb.php">PdoGsb.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">511</span>
+    <span class="phpdocumentor-element-found-in__line">574</span>
 
     </aside>
 
@@ -1309,7 +1332,7 @@ l'année et le mois correspondant</p>
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/Modeles/PdoGsb.php"><a href="files/src-modeles-pdogsb.html"><abbr title="src/Modeles/PdoGsb.php">PdoGsb.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">575</span>
+    <span class="phpdocumentor-element-found-in__line">636</span>
 
     </aside>
 
@@ -1372,7 +1395,7 @@ l'année et le mois correspondant</p>
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/Modeles/PdoGsb.php"><a href="files/src-modeles-pdogsb.html"><abbr title="src/Modeles/PdoGsb.php">PdoGsb.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">542</span>
+    <span class="phpdocumentor-element-found-in__line">604</span>
 
     </aside>
 
@@ -1435,7 +1458,7 @@ l'année et le mois correspondant</p>
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/Modeles/PdoGsb.php"><a href="files/src-modeles-pdogsb.html"><abbr title="src/Modeles/PdoGsb.php">PdoGsb.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">164</span>
+    <span class="phpdocumentor-element-found-in__line">157</span>
 
     </aside>
 
@@ -1479,7 +1502,7 @@ tableau associatif</p>
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/Modeles/PdoGsb.php"><a href="files/src-modeles-pdogsb.html"><abbr title="src/Modeles/PdoGsb.php">PdoGsb.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">224</span>
+    <span class="phpdocumentor-element-found-in__line">215</span>
 
     </aside>
 
@@ -1543,7 +1566,7 @@ tableau associatif</p>
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/Modeles/PdoGsb.php"><a href="files/src-modeles-pdogsb.html"><abbr title="src/Modeles/PdoGsb.php">PdoGsb.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">77</span>
+    <span class="phpdocumentor-element-found-in__line">74</span>
 
     </aside>
 
@@ -1599,7 +1622,7 @@ Appel : $instancePdoGsb = PdoGsb::getPdoGsb();</p>
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/Modeles/PdoGsb.php"><a href="files/src-modeles-pdogsb.html"><abbr title="src/Modeles/PdoGsb.php">PdoGsb.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">640</span>
+    <span class="phpdocumentor-element-found-in__line">699</span>
 
     </aside>
 
@@ -1670,7 +1693,7 @@ Appel : $instancePdoGsb = PdoGsb::getPdoGsb();</p>
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/Modeles/PdoGsb.php"><a href="files/src-modeles-pdogsb.html"><abbr title="src/Modeles/PdoGsb.php">PdoGsb.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">294</span>
+    <span class="phpdocumentor-element-found-in__line">282</span>
 
     </aside>
 
@@ -1742,7 +1765,7 @@ de valeur la quantité pour ce frais</p>
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/Modeles/PdoGsb.php"><a href="files/src-modeles-pdogsb.html"><abbr title="src/Modeles/PdoGsb.php">PdoGsb.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">326</span>
+    <span class="phpdocumentor-element-found-in__line">313</span>
 
     </aside>
 
@@ -1822,7 +1845,7 @@ un mois donné en enregistrant les nouveaux montants</p>
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/Modeles/PdoGsb.php"><a href="files/src-modeles-pdogsb.html"><abbr title="src/Modeles/PdoGsb.php">PdoGsb.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">352</span>
+    <span class="phpdocumentor-element-found-in__line">396</span>
 
     </aside>
 
@@ -1884,6 +1907,174 @@ pour le mois et le visiteur concerné</p>
             -public
                                                         "
 >
+    <h4 class="phpdocumentor-element__name" id="method_moisSuivant">
+        moisSuivant()
+        <a href="classes/Modeles-PdoGsb.html#method_moisSuivant" class="headerlink"><i class="fas fa-link"></i></a>
+
+    </h4>
+    <aside class="phpdocumentor-element-found-in">
+    <abbr class="phpdocumentor-element-found-in__file" title="src/Modeles/PdoGsb.php"><a href="files/src-modeles-pdogsb.html"><abbr title="src/Modeles/PdoGsb.php">PdoGsb.php</abbr></a></abbr>
+    :
+    <span class="phpdocumentor-element-found-in__line">464</span>
+
+    </aside>
+
+        <p class="phpdocumentor-summary">Retourne le mois suivant</p>
+
+    <code class="phpdocumentor-code phpdocumentor-signature ">
+    <span class="phpdocumentor-signature__visibility">public</span>
+                    <span class="phpdocumentor-signature__name">moisSuivant</span><span>(</span><span class="phpdocumentor-signature__argument"><span class="phpdocumentor-signature__argument__type">string&nbsp;</span><span class="phpdocumentor-signature__argument__name">$mois</span></span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type"><abbr title="\Modeles\le">le</abbr></span></code>
+
+    <div class="phpdocumentor-label-line">
+        </div>
+    
+    
+        <h5 class="phpdocumentor-argument-list__heading">Parameters</h5>
+    <dl class="phpdocumentor-argument-list">
+                    <dt class="phpdocumentor-argument-list__entry">
+                <span class="phpdocumentor-argument-list__argument__name">$mois</span>
+                : <span class="phpdocumentor-argument-list__argument__type">string</span>
+                            </dt>
+            <dd class="phpdocumentor-argument-list__definition">
+                    <section class="phpdocumentor-description"><p>mois de la fiche de frais</p>
+</section>
+
+            </dd>
+            </dl>
+
+    
+
+        
+    
+            <section>
+        <h5 class="phpdocumentor-return-value__heading">Return values</h5>
+        <span class="phpdocumentor-signature__response_type"><abbr title="\Modeles\le">le</abbr></span>
+                    &mdash;
+                <section class="phpdocumentor-description"><p>mois suivant</p>
+</section>
+
+            </section>
+
+</article>
+                    <article
+        class="phpdocumentor-element
+            -method
+            -public
+                                                        "
+>
+    <h4 class="phpdocumentor-element__name" id="method_refuserFraisHorsForfait">
+        refuserFraisHorsForfait()
+        <a href="classes/Modeles-PdoGsb.html#method_refuserFraisHorsForfait" class="headerlink"><i class="fas fa-link"></i></a>
+
+    </h4>
+    <aside class="phpdocumentor-element-found-in">
+    <abbr class="phpdocumentor-element-found-in__file" title="src/Modeles/PdoGsb.php"><a href="files/src-modeles-pdogsb.html"><abbr title="src/Modeles/PdoGsb.php">PdoGsb.php</abbr></a></abbr>
+    :
+    <span class="phpdocumentor-element-found-in__line">337</span>
+
+    </aside>
+
+        <p class="phpdocumentor-summary">Met à jour la table ligneFraisHorsForfait en ajoutant
+&quot;REFUSE : &quot; au libellé du frais hors forfait</p>
+
+    <code class="phpdocumentor-code phpdocumentor-signature ">
+    <span class="phpdocumentor-signature__visibility">public</span>
+                    <span class="phpdocumentor-signature__name">refuserFraisHorsForfait</span><span>(</span><span class="phpdocumentor-signature__argument"><span class="phpdocumentor-signature__argument__type">string&nbsp;</span><span class="phpdocumentor-signature__argument__name">$idFraisHors</span></span><span class="phpdocumentor-signature__argument"><span>, </span><span class="phpdocumentor-signature__argument__type">string&nbsp;</span><span class="phpdocumentor-signature__argument__name">$libelle</span></span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type">null</span></code>
+
+    <div class="phpdocumentor-label-line">
+        </div>
+    
+    
+        <h5 class="phpdocumentor-argument-list__heading">Parameters</h5>
+    <dl class="phpdocumentor-argument-list">
+                    <dt class="phpdocumentor-argument-list__entry">
+                <span class="phpdocumentor-argument-list__argument__name">$idFraisHors</span>
+                : <span class="phpdocumentor-argument-list__argument__type">string</span>
+                            </dt>
+            <dd class="phpdocumentor-argument-list__definition">
+                    <section class="phpdocumentor-description"><p>ID du frais hors forfait</p>
+</section>
+
+            </dd>
+                    <dt class="phpdocumentor-argument-list__entry">
+                <span class="phpdocumentor-argument-list__argument__name">$libelle</span>
+                : <span class="phpdocumentor-argument-list__argument__type">string</span>
+                            </dt>
+            <dd class="phpdocumentor-argument-list__definition">
+                    <section class="phpdocumentor-description"><p>libelle du frais</p>
+</section>
+
+            </dd>
+            </dl>
+
+    
+
+        
+    
+            <section>
+        <h5 class="phpdocumentor-return-value__heading">Return values</h5>
+        <span class="phpdocumentor-signature__response_type">null</span>
+            </section>
+
+</article>
+                    <article
+        class="phpdocumentor-element
+            -method
+            -public
+                                                        "
+>
+    <h4 class="phpdocumentor-element__name" id="method_reporterFraisHorsForfait">
+        reporterFraisHorsForfait()
+        <a href="classes/Modeles-PdoGsb.html#method_reporterFraisHorsForfait" class="headerlink"><i class="fas fa-link"></i></a>
+
+    </h4>
+    <aside class="phpdocumentor-element-found-in">
+    <abbr class="phpdocumentor-element-found-in__file" title="src/Modeles/PdoGsb.php"><a href="files/src-modeles-pdogsb.html"><abbr title="src/Modeles/PdoGsb.php">PdoGsb.php</abbr></a></abbr>
+    :
+    <span class="phpdocumentor-element-found-in__line">359</span>
+
+    </aside>
+
+        <p class="phpdocumentor-summary">Met à jour la table ligneFraisHorsForfait en reportant
+les frais hors forfait au mois suivant</p>
+
+    <code class="phpdocumentor-code phpdocumentor-signature ">
+    <span class="phpdocumentor-signature__visibility">public</span>
+                    <span class="phpdocumentor-signature__name">reporterFraisHorsForfait</span><span>(</span><span class="phpdocumentor-signature__argument"><span class="phpdocumentor-signature__argument__type">string&nbsp;</span><span class="phpdocumentor-signature__argument__name">$idFraisHors</span></span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type">null</span></code>
+
+    <div class="phpdocumentor-label-line">
+        </div>
+    
+    
+        <h5 class="phpdocumentor-argument-list__heading">Parameters</h5>
+    <dl class="phpdocumentor-argument-list">
+                    <dt class="phpdocumentor-argument-list__entry">
+                <span class="phpdocumentor-argument-list__argument__name">$idFraisHors</span>
+                : <span class="phpdocumentor-argument-list__argument__type">string</span>
+                            </dt>
+            <dd class="phpdocumentor-argument-list__definition">
+                    <section class="phpdocumentor-description"><p>ID du frais hors forfait</p>
+</section>
+
+            </dd>
+            </dl>
+
+    
+
+        
+    
+            <section>
+        <h5 class="phpdocumentor-return-value__heading">Return values</h5>
+        <span class="phpdocumentor-signature__response_type">null</span>
+            </section>
+
+</article>
+                    <article
+        class="phpdocumentor-element
+            -method
+            -public
+                                                        "
+>
     <h4 class="phpdocumentor-element__name" id="method_supprimerFraisHorsForfait">
         supprimerFraisHorsForfait()
         <a href="classes/Modeles-PdoGsb.html#method_supprimerFraisHorsForfait" class="headerlink"><i class="fas fa-link"></i></a>
@@ -1892,7 +2083,7 @@ pour le mois et le visiteur concerné</p>
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/Modeles/PdoGsb.php"><a href="files/src-modeles-pdogsb.html"><abbr title="src/Modeles/PdoGsb.php">PdoGsb.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">493</span>
+    <span class="phpdocumentor-element-found-in__line">557</span>
 
     </aside>
 
@@ -1943,7 +2134,7 @@ pour le mois et le visiteur concerné</p>
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/Modeles/PdoGsb.php"><a href="files/src-modeles-pdogsb.html"><abbr title="src/Modeles/PdoGsb.php">PdoGsb.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">56</span>
+    <span class="phpdocumentor-element-found-in__line">55</span>
 
     </aside>
 
@@ -2089,8 +2280,8 @@ pour toutes les méthodes de la classe</p>
             <li>
                 <ul class="phpdocumentor-list -clean">
                                             <li class=""><a href="classes/Modeles-PdoGsb.html#method___destruct">__destruct()</a></li>
+                                            <li class=""><a href="classes/Modeles-PdoGsb.html#method_acreeNouvellesLignesFrais">acreeNouvellesLignesFrais()</a></li>
                                             <li class=""><a href="classes/Modeles-PdoGsb.html#method_creeNouveauFraisHorsForfait">creeNouveauFraisHorsForfait()</a></li>
-                                            <li class=""><a href="classes/Modeles-PdoGsb.html#method_creeNouvellesLignesFrais">creeNouvellesLignesFrais()</a></li>
                                             <li class=""><a href="classes/Modeles-PdoGsb.html#method_dernierMoisSaisi">dernierMoisSaisi()</a></li>
                                             <li class=""><a href="classes/Modeles-PdoGsb.html#method_estPremierFraisMois">estPremierFraisMois()</a></li>
                                             <li class=""><a href="classes/Modeles-PdoGsb.html#method_getInfosComptable">getInfosComptable()</a></li>
@@ -2110,6 +2301,9 @@ pour toutes les méthodes de la classe</p>
                                             <li class=""><a href="classes/Modeles-PdoGsb.html#method_majFraisForfait">majFraisForfait()</a></li>
                                             <li class=""><a href="classes/Modeles-PdoGsb.html#method_majFraisHorsForfait">majFraisHorsForfait()</a></li>
                                             <li class=""><a href="classes/Modeles-PdoGsb.html#method_majNbJustificatifs">majNbJustificatifs()</a></li>
+                                            <li class=""><a href="classes/Modeles-PdoGsb.html#method_moisSuivant">moisSuivant()</a></li>
+                                            <li class=""><a href="classes/Modeles-PdoGsb.html#method_refuserFraisHorsForfait">refuserFraisHorsForfait()</a></li>
+                                            <li class=""><a href="classes/Modeles-PdoGsb.html#method_reporterFraisHorsForfait">reporterFraisHorsForfait()</a></li>
                                             <li class=""><a href="classes/Modeles-PdoGsb.html#method_supprimerFraisHorsForfait">supprimerFraisHorsForfait()</a></li>
                                             <li class=""><a href="classes/Modeles-PdoGsb.html#method___construct">__construct()</a></li>
                                     </ul>
