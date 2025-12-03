@@ -349,6 +349,41 @@ class PdoGsb {
     }
 
     /**
+     * Met à jour la table ligneFraisHorsForfait en reportant
+     * les frais hors forfait au mois suivant
+     *
+     * @param String $idFraisHors ID du frais hors forfait
+     *
+     * @return null
+     */
+    public function reporterFraisHorsForfait($idFraisHors): void {
+        $requetePrepare = $this->connexion->prepare(
+                'SELECT mois, idvisiteur, libelle, date, montant '
+                . 'FROM lignefraishorsforfait '
+                . 'WHERE lignefraishorsforfait.id = :unId'
+        );
+        $requetePrepare->bindParam(':unId', $idFraisHors, PDO::PARAM_STR);
+        $requetePrepare->execute();
+        $laLigne = $requetePrepare->fetch();
+        $mois = $laLigne['mois'];
+        $idVisiteur = $laLigne['idvisiteur'];
+        $libelle = $laLigne['libelle'];
+        $date = $laLigne['date'];
+        $montant = $laLigne['montant'];
+
+        $leMoisSuivant = $this->moisSuivant($mois);
+        $dateEN = Utilitaires::dateAnglaisVersFrancais($date);
+
+        if ($this->estPremierFraisMois($idVisiteur, $leMoisSuivant)) {
+
+            $this->creeNouvellesLignesFrais($idVisiteur, $leMoisSuivant);
+        }
+
+        $this->creeNouveauFraisHorsForfait($idVisiteur, $leMoisSuivant, $libelle, $dateEN, $montant);
+        $this->supprimerFraisHorsForfait($idFraisHors);
+    }
+
+    /**
      * Met à jour le nombre de justificatifs de la table ficheFrais
      * pour le mois et le visiteur concerné
      *
@@ -420,6 +455,31 @@ class PdoGsb {
     }
 
     /**
+     * Retourne le mois suivant 
+     *
+     * @param String $mois mois de la fiche de frais
+     *
+     * @return le mois suivant 
+     */
+    public function moisSuivant($mois): string {
+        
+        $anneeActuel = substr($mois, 0, 4);
+        $moisActuel = substr($mois, -2);
+        $moisFinal = "";
+        
+        if($moisActuel == '12') {
+            $moisFinal = (intval($anneeActuel) + 1). '01';
+        } else {
+            if(strlen(strval(intval($moisActuel) + 1)) < 2) {
+               $moisFinal = $anneeActuel.'0'.(intval($moisActuel) + 1);
+            } else {
+                $moisFinal = $anneeActuel.(intval($moisActuel) + 1);
+            }
+        }
+        return $moisFinal;
+    }
+
+    /**
      * Crée une nouvelle fiche de frais et les lignes de frais au forfait
      * pour un visiteur et un mois donnés
      *
@@ -432,7 +492,7 @@ class PdoGsb {
      *
      * @return null
      */
-    public function creeNouvellesLignesFrais($idVisiteur, $mois): void {
+    public function acreeNouvellesLignesFrais($idVisiteur, $mois): void {
         $dernierMois = $this->dernierMoisSaisi($idVisiteur);
         $laDerniereFiche = $this->getLesInfosFicheFrais($idVisiteur, $dernierMois);
         if ($laDerniereFiche['idEtat'] == 'CR') {

@@ -46,8 +46,7 @@
     </div>
 </div>
 <div class="card border-warning mb-3">
-    <div class="card-header bg-warning text-white">Descriptif des éléments hors forfait - 
-        <?php echo $nbJustificatifs ?> justificatifs reçus</div>
+    <div class="card-header bg-warning text-white">Descriptif des éléments hors forfait - <?php echo $nbJustificatifs ?> justificatifs reçus</div>
     <div class="table-responsive">
         <table class="table table-bordered align-middle">
             <thead>

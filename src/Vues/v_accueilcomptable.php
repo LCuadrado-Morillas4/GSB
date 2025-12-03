@@ -39,7 +39,7 @@
                             <i class="bi bi-check"></i>
                             <br>Valider fiche de frais
                         </a>
-                        <a href="index.php?uc=suivrePaiement&action=selectionnerFiche"
+                        <a href="index.php?uc=suivrePaiement&action=selectionnerVisiteur"
                            class="btn btn-primary btn-lg" role="button">
                             <i class="bi bi-currency-euro"></i>
                             <br>Suivre paiement fiche de frais

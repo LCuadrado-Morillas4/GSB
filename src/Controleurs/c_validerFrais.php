@@ -24,7 +24,7 @@ $lesVisiteurs = $pdo->getLesVisiteurs();
 $idVisiteur = filter_input(INPUT_POST, 'visiteur', FILTER_SANITIZE_FULL_SPECIAL_CHARS);
 $leMois = filter_input(INPUT_POST, 'mois', FILTER_SANITIZE_FULL_SPECIAL_CHARS);
 
-if (isset($idVisiteur)) {
+if (isset($idVisiteur) && $idVisiteur != null) {
     $visiteurASelectionner = $pdo->getInfosVisiteurById($idVisiteur);
     $moisASelectionner = $leMois;
     $lesMois = $pdo->getLesMoisDisponiblesAValider($idVisiteur, "CL");
@@ -40,6 +40,11 @@ if (isset($idVisiteur)) {
 }
 
 switch ($action) {
+    case 'selectionnerVisiteur' :
+        
+        include PATH_VIEWS . 'v_listeVisiteurs.php';
+        break;
+        
     case 'selectionnerFiche' :
 
         include PATH_VIEWS . 'v_listeVisiteurs.php';
@@ -76,13 +81,13 @@ switch ($action) {
         break;
 
     case 'majFraisHorsForfait':
-        
+
         $submitType = filter_input(INPUT_POST, 'submitType', FILTER_SANITIZE_FULL_SPECIAL_CHARS);
         switch ($submitType) {
             case 'corriger':
                 $idFraisHors = filter_input(INPUT_POST, 'idFraisHors', FILTER_SANITIZE_FULL_SPECIAL_CHARS);
                 $lesFraisHorsD = filter_input(INPUT_POST, 'lesFraisHorsForfaitD', FILTER_SANITIZE_FULL_SPECIAL_CHARS);
-                $lesFraisHorsL = filter_input(INPUT_POST, 'lesFraisHorsForfaitL', FILTER_SANITIZE_FULL_SPECIAL_CHARS);
+                $lesFraisHorsL = filter_input(INPUT_POST, 'lesFraisHorsForfaitL');
                 $lesFraisHorsM = filter_input(INPUT_POST, 'lesFraisHorsForfaitM', FILTER_SANITIZE_FULL_SPECIAL_CHARS);
 
                 $lesFraisHorsD = DateTime::createFromFormat('d/m/Y', $lesFraisHorsD);
@@ -106,6 +111,8 @@ switch ($action) {
                 include PATH_VIEWS . 'v_validerFrais.php';
                 break;
             case 'reporter':
+                $idFraisHors = filter_input(INPUT_POST, 'idFraisHors', FILTER_SANITIZE_FULL_SPECIAL_CHARS);
+
                 $pdo->reporterFraisHorsForfait($idFraisHors);
 
                 $lesFraisHorsForfait = $pdo->getLesFraisHorsForfait($idVisiteur, $leMois);

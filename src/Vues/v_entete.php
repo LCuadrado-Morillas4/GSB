@@ -49,7 +49,7 @@
                 } elseif ($_SESSION['role'] === 'comptable') {
                     $txt1 = 'Valider les fiche de frais';
                     $uc1 = 'validerFrais';
-                    $act1 = 'selectionnerFiche';
+                    $act1 = 'selectionnerVisiteur';
                     $txt2 = 'Suivre le paiement des fiches de frais';
                     $uc2 = 'suivrePaiement';
                     $act2 = 'selectionnerFiche';
