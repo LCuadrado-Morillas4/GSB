@@ -107,8 +107,10 @@
                                    class="form-control">
                         </td>
                         <td>
-                            <button id="ok" type="submit" class="btn btn-success">Corriger</button>
-                            <button id="annuler" type="reset" class="btn btn-danger">Réinitialiser</button>
+                            <button id="ok" type="submit" name="submitType" value="corriger" class="btn btn-success">Corriger</button>
+                            <button id="reporter" type="submit" name="submitType" value="reporter"  class="btn btn-warning">Reporter</button>
+                            <button id="refuser" type="submit" name="submitType" value="refuser"  class="btn btn-danger">Refuser</button>
+                            <button id="annuler" type="reset" class="btn btn-primary">Réinitialiser</button>
                         </td>
                     </tr>
                 </form>

@@ -1,6 +1,6 @@
 <?php
 /** 
- * Vue Accueil Comptable
+ * Vue Suivi de fiche de frais
  *
  * PHP Version 8
  *
