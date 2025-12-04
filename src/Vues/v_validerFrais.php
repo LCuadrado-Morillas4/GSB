@@ -1,6 +1,6 @@
 <?php
 /**
- * Vue Valider Frais
+ * Vue Valider fiche de Frais
  *
  * PHP Version 8
  *

@@ -82,21 +82,24 @@ class PdoGsb {
      * Retourne les informations d'un visiteur
      *
      * @param String $login Login du visiteur
-     * @param String $mdp   Mot de passe du visiteur
      *
      * @return l'id, le nom et le prénom sous la forme d'un tableau associatif
      */
-    public function getInfosVisiteur($login, $mdp): array {
+    public function getInfosVisiteur($login): ?array {
         $requetePrepare = $this->connexion->prepare(
                 'SELECT visiteur.id AS id, visiteur.nom AS nom, '
                 . 'visiteur.prenom AS prenom '
                 . 'FROM visiteur '
-                . 'WHERE visiteur.login = :unLogin AND visiteur.mdp = :unMdp'
+                . 'WHERE visiteur.login = :unLogin'
         );
         $requetePrepare->bindParam(':unLogin', $login, PDO::PARAM_STR);
-        $requetePrepare->bindParam(':unMdp', $mdp, PDO::PARAM_STR);
         $requetePrepare->execute();
-        return $requetePrepare->fetch();
+        $resultat = $requetePrepare->fetch();
+        if ($resultat) {
+            return $resultat;
+        } else {
+            return null;
+        }
     }
 
     /**
@@ -128,24 +131,63 @@ class PdoGsb {
     }
 
     /**
+     * Retourne le mot de passe d'un visiteur
+     * 
+     * @param String $login Login du visiteur
+     * 
+     * @return le mdp du visiteur
+     */
+    public function getMdpVisiteur($login) {
+        $requetePrepare = $this->connexion->prepare(
+                'SELECT mdp '
+                . 'FROM visiteur '
+                . 'WHERE visiteur.login = :unLogin'
+        );
+        $requetePrepare->bindParam(':unLogin', $login, PDO::PARAM_STR);
+        $requetePrepare->execute();
+        return $requetePrepare->fetch(PDO::FETCH_OBJ)->mdp;
+    }
+
+    /**
      * Retourne les informations d'un comptable
      *
      * @param String $login Login du comptable
-     * @param String $mdp   Mot de passe du comptable
      *
      * @return l'id, le nom et le prénom sous la forme d'un tableau associatif
      */
-    public function getInfosComptable($login, $mdp): array {
+    public function getInfosComptable($login): ?array {
         $requetePrepare = $this->connexion->prepare(
                 'SELECT comptable.id AS id, comptable.nom AS nom, '
                 . 'comptable.prenom AS prenom '
                 . 'FROM comptable '
-                . 'WHERE comptable.login = :unLogin AND comptable.mdp = :unMdp'
+                . 'WHERE comptable.login = :unLogin'
         );
         $requetePrepare->bindParam(':unLogin', $login, PDO::PARAM_STR);
-        $requetePrepare->bindParam(':unMdp', $mdp, PDO::PARAM_STR);
         $requetePrepare->execute();
-        return $requetePrepare->fetch();
+        $resultat = $requetePrepare->fetch();
+        if ($resultat) {
+            return $resultat;
+        } else {
+            return null;
+        }
+    }
+
+    /**
+     * Retourne le mot de passe d'un comptable
+     * 
+     * @param String $login Login du comptable
+     * 
+     * @return le mdp du comptable
+     */
+    public function getMdpComptable($login) {
+        $requetePrepare = $this->connexion->prepare(
+                'SELECT mdp '
+                . 'FROM comptable '
+                . 'WHERE comptable.login = :unLogin'
+        );
+        $requetePrepare->bindParam(':unLogin', $login, PDO::PARAM_STR);
+        $requetePrepare->execute();
+        return $requetePrepare->fetch(PDO::FETCH_OBJ)->mdp;
     }
 
     /**
