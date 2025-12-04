@@ -20,6 +20,9 @@
 </div>
 <h3>Éléments forfaitisés</h3>
 <div>
+    <div>
+        <h5>Puissance du véhicule : <?php echo $pVehicule?></h5>
+    </div>
     <div class="table-responsive">
         <table class="table table-bordered align-middle">
             <tr>

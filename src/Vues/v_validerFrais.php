@@ -20,6 +20,9 @@
 </div>
 <h3>Éléments forfaitisés</h3>
 <div>
+    <div>
+        <h5>Puissance du véhicule : <?php echo $pVehicule?></h5>
+    </div>
     <form method="post" action="index.php?uc=validerFrais&action=majFraisForfait" onsubmit="return confirm('Voulez-vous valider les changements ?');">
 
         <input type="hidden" name="visiteur" value="<?php echo $idVisiteur ?>">

@@ -707,7 +707,7 @@ class PdoGsb {
      * @param String $mois       Mois sous la forme aaaamm
      *
      * @return un tableau avec des champs de jointure entre une fiche de frais
-     *         et la ligne d'état
+     *         , la ligne d'état et la puissance du véhicule 
      */
     public function getLesInfosFicheFrais($idVisiteur, $mois): array {
         $requetePrepare = $this->connexion->prepare(
@@ -715,9 +715,11 @@ class PdoGsb {
                 . 'fichefrais.datemodif as dateModif,'
                 . 'fichefrais.nbjustificatifs as nbJustificatifs, '
                 . 'fichefrais.montantvalide as montantValide, '
-                . 'etat.libelle as libEtat '
+                . 'etat.libelle as libEtat, '
+                . 'puissancevehicule.puissancevehicule as pVehicule '
                 . 'FROM fichefrais '
                 . 'INNER JOIN etat ON fichefrais.idetat = etat.id '
+                . 'INNER JOIN puissancevehicule ON fichefrais.idpuissancevehicule = puissancevehicule.id '
                 . 'WHERE fichefrais.idvisiteur = :unIdVisiteur '
                 . 'AND fichefrais.mois = :unMois'
         );

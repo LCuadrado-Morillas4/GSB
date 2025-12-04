@@ -30,11 +30,8 @@
                     <option value="3">4CV Essence</option>
                     <option value="4">5/6CV Essence</option>
                 </select>
-            </div>
-
             <button id="ok" type="submit" class="btn btn-success">Valider</button>
-            <button id="annuler" type="reset" class="btn btn-danger">Effacer</button>
-              
+            </div>
         </form>
     </div>
     <div class="col-md-4">
@@ -58,6 +55,7 @@
                     <?php
                 }
                 ?>
+                <br>
                 <button class="btn btn-success" type="submit">Ajouter</button>
                 <button class="btn btn-danger" type="reset">Effacer</button>
             </fieldset>
