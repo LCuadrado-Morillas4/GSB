@@ -23,6 +23,10 @@ $numAnnee = substr($mois, 0, 4);
 $numMois = substr($mois, 4, 2);
 $action = filter_input(INPUT_GET, 'action', FILTER_SANITIZE_FULL_SPECIAL_CHARS);
 switch ($action) {
+    case 'saisirPuissance':
+        $laPuissance = filter_input(INPUT_POST, 'puissanceVehicule', FILTER_DEFAULT, FILTER_FORCE_ARRAY);
+        $pdo-majPuissanceVehicule($idVisiteur, $laPuissance);
+        break;
     case 'saisirFrais':
         if ($pdo->estPremierFraisMois($idVisiteur, $mois)) {
             $pdo->creeNouvellesLignesFrais($idVisiteur, $mois);

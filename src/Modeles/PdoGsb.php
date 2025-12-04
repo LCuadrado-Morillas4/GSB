@@ -534,7 +534,7 @@ class PdoGsb {
      *
      * @return null
      */
-    public function acreeNouvellesLignesFrais($idVisiteur, $mois): void {
+    public function creeNouvellesLignesFrais($idVisiteur, $mois): void {
         $dernierMois = $this->dernierMoisSaisi($idVisiteur);
         $laDerniereFiche = $this->getLesInfosFicheFrais($idVisiteur, $dernierMois);
         if ($laDerniereFiche['idEtat'] == 'CR') {
@@ -750,4 +750,16 @@ class PdoGsb {
         $requetePrepare->bindParam(':unMois', $mois, PDO::PARAM_STR);
         $requetePrepare->execute();
     }
+    
+    public function mejPuissanceVehicule($idVisiteur, $puissance): void {
+        $requetePrepare = $this->connexion->prepare(
+                'UPDATE fichefrais '
+                . 'SET idpuissance = :unePuissance'
+                . 'WHERE fichefrais.idvisiteur = :unIdVisiteur '
+        );
+        $requetePrepare->bindParam(':unIdVisiteur', $idVisiteur, PDO::PARAM_STR);
+        $requetePrepare->bindParam(':unePuissance', $puissance, PDO::PARAM_STR);
+        $requetePrepare->execute();
+    }
+    
 }

@@ -20,6 +20,23 @@
         <?php echo $numMois . '-' . $numAnnee ?>
     </h2>
     <h3>Éléments forfaitisés</h3>
+    <div>
+        <form method="post" action="index.php?uc=gererFrais&action=saisirPuissance"
+            <div>
+                <label for="puissanceVehicule" class="form-label" accesskey="n">Veuillez choisir la puissance de votre véhicule :</label>
+                <select name="puissanceVehicule">
+                    <option selected value="1">4CV Diesel</option>
+                    <option value="2">5/6CV Diesel</option>
+                    <option value="3">4CV Essence</option>
+                    <option value="4">4CV Essence</option>
+                </select>
+            </div>
+
+            <button id="ok" type="submit" class="btn btn-success">Valider</button>
+            <button id="annuler" type="reset" class="btn btn-danger">Effacer</button>
+              
+        </form>
+    </div>
     <div class="col-md-4">
         <form method="post" 
               action="index.php?uc=gererFrais&action=validerMajFraisForfait">
