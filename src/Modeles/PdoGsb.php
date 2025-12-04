@@ -751,14 +751,16 @@ class PdoGsb {
         $requetePrepare->execute();
     }
     
-    public function mejPuissanceVehicule($idVisiteur, $puissance): void {
+    public function majPuissanceVehiculeFicheFrais($idVisiteur, $mois, $puissance): void {
         $requetePrepare = $this->connexion->prepare(
                 'UPDATE fichefrais '
-                . 'SET idpuissance = :unePuissance'
+                . 'SET fichefrais.idpuissancevehicule = :unePuissance '
                 . 'WHERE fichefrais.idvisiteur = :unIdVisiteur '
+                . 'AND fichefrais.mois = :unMois'
         );
         $requetePrepare->bindParam(':unIdVisiteur', $idVisiteur, PDO::PARAM_STR);
-        $requetePrepare->bindParam(':unePuissance', $puissance, PDO::PARAM_STR);
+        $requetePrepare->bindParam(':unMois', $mois, PDO::PARAM_STR);
+        $requetePrepare->bindParam(':unePuissance', $puissance, PDO::PARAM_INT);
         $requetePrepare->execute();
     }
     
