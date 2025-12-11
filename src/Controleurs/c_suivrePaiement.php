@@ -1,5 +1,6 @@
 <?php
-/** 
+
+/**
  * Vue Suivi de fiche de frais
  *
  * PHP Version 8
@@ -31,8 +32,12 @@ if (isset($idVisiteur)) {
         $lesFraisForfait = $pdo->getLesFraisForfait($idVisiteur, $leMois);
         $lesFraisHorsForfait = $pdo->getLesFraisHorsForfait($idVisiteur, $leMois);
 
-        $lesInfosFicheFrais = $pdo->getLesInfosFicheFrais($idVisiteur, $leMois);
-        $pVehicule = $lesInfosFicheFrais['pVehicule'];
+        if ($pdo->isSetPuissanceVehicule($idVisiteur, $leMois)) {
+            $lesInfosFicheFrais = $pdo->getToutesLesInfosFicheFrais($idVisiteur, $leMois);
+            $pVehicule = $lesInfosFicheFrais['pVehicule'];
+        } else {
+            $lesInfosFicheFrais = $pdo->getLesInfosFicheFrais($idVisiteur, $leMois);
+        }
         $libEtat = $lesInfosFicheFrais['libEtat'];
         $montantValide = $lesInfosFicheFrais['montantValide'];
         $nbJustificatifs = $lesInfosFicheFrais['nbJustificatifs'];
@@ -54,7 +59,7 @@ switch ($action) {
         break;
 
     case 'rembourserFiche':
-        
+
         $pdo->majEtatFicheFrais($idVisiteur, $leMois, "RB");
 
         include PATH_VIEWS . 'v_listeVisiteursASuivre.php';
