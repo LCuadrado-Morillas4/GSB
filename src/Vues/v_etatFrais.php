@@ -29,6 +29,16 @@
 <div class="card border-info mb-3">
     <div class="card-header bg-info text-white">Éléments forfaitisés</div>
     <div class="table-responsive">
+
+        <?php
+        if (isset($pVehicule)) {
+            ?>
+            <div>
+                <h5>Puissance du véhicule : <?php echo $pVehicule ?></h5>
+            </div>
+            <?php
+        }
+        ?>
         <table class="table table-bordered align-middle">
             <tr>
                 <?php

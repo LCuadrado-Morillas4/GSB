@@ -36,7 +36,12 @@ switch ($action) {
         include PATH_VIEWS . 'v_listeMois.php';
         $lesFraisHorsForfait = $pdo->getLesFraisHorsForfait($idVisiteur, $leMois);
         $lesFraisForfait = $pdo->getLesFraisForfait($idVisiteur, $leMois);
-        $lesInfosFicheFrais = $pdo->getLesInfosFicheFrais($idVisiteur, $leMois);
+        if ($pdo->isSetPuissanceVehicule($idVisiteur, $leMois)) {
+            $lesInfosFicheFrais = $pdo->getToutesLesInfosFicheFrais($idVisiteur, $leMois);
+            $pVehicule = $lesInfosFicheFrais['pVehicule'];
+        } else {
+            $lesInfosFicheFrais = $pdo->getLesInfosFicheFrais($idVisiteur, $leMois);
+        }
         $numAnnee = substr($leMois, 0, 4);
         $numMois = substr($leMois, 4, 2);
         $libEtat = $lesInfosFicheFrais['libEtat'];
