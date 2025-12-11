@@ -32,8 +32,12 @@ if (isset($idVisiteur) && $idVisiteur != null) {
         $lesFraisForfait = $pdo->getLesFraisForfait($idVisiteur, $leMois);
         $lesFraisHorsForfait = $pdo->getLesFraisHorsForfait($idVisiteur, $leMois);
 
-        $lesInfosFicheFrais = $pdo->getLesInfosFicheFrais($idVisiteur, $leMois);
-        $pVehicule = $lesInfosFicheFrais['pVehicule'];
+        if ($pdo->isSetPuissanceVehicule($idVisiteur, $leMois)) {
+            $lesInfosFicheFrais = $pdo->getToutesLesInfosFicheFrais($idVisiteur, $leMois);
+            $pVehicule = $lesInfosFicheFrais['pVehicule'];
+        } else {
+            $lesInfosFicheFrais = $pdo->getLesInfosFicheFrais($idVisiteur, $leMois);
+        }
         $libEtat = $lesInfosFicheFrais['libEtat'];
         $montantValide = $lesInfosFicheFrais['montantValide'];
         $nbJustificatifs = $lesInfosFicheFrais['nbJustificatifs'];
