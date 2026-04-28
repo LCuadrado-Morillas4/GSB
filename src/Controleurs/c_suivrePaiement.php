@@ -13,8 +13,9 @@
  * @license   Réseau CERTA
  * @version   GIT: <0>
  * @link      http://www.reseaucerta.org Contexte « Laboratoire GSB »
- * TODO  
+ *
  */
+
 use Outils\Utilitaires;
 
 $action = filter_input(INPUT_GET, 'action', FILTER_SANITIZE_FULL_SPECIAL_CHARS);
@@ -45,21 +46,18 @@ if (isset($idVisiteur)) {
 }
 
 switch ($action) {
-    case 'selectionnerFiche' :
-
+    case 'selectionnerFiche':
         include PATH_VIEWS . 'v_listeVisiteursASuivre.php';
         include PATH_VIEWS . 'v_listeMoisASuivre.php';
         break;
 
     case 'afficherFrais':
-
         include PATH_VIEWS . 'v_listeVisiteursASuivre.php';
         include PATH_VIEWS . 'v_listeMoisASuivre.php';
         include PATH_VIEWS . 'v_suivrePaiement.php';
         break;
 
     case 'rembourserFiche':
-
         $pdo->majEtatFicheFrais($idVisiteur, $leMois, "RB");
 
         include PATH_VIEWS . 'v_listeVisiteursASuivre.php';

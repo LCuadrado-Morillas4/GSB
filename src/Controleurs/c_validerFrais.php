@@ -13,8 +13,9 @@
  * @license   Réseau CERTA
  * @version   GIT: <0>
  * @link      http://www.reseaucerta.org Contexte « Laboratoire GSB »
- * 
+ *
  */
+
 use Outils\Utilitaires;
 
 $action = filter_input(INPUT_GET, 'action', FILTER_SANITIZE_FULL_SPECIAL_CHARS);
@@ -45,37 +46,27 @@ if (isset($idVisiteur) && $idVisiteur != null) {
 }
 
 switch ($action) {
-    case 'selectionnerVisiteur' :
-        
+    case 'selectionnerVisiteur':
         include PATH_VIEWS . 'v_listeVisiteurs.php';
         break;
-        
-    case 'selectionnerFiche' :
-
+    case 'selectionnerFiche':
         include PATH_VIEWS . 'v_listeVisiteurs.php';
         include PATH_VIEWS . 'v_listeMoisValider.php';
         break;
-
     case 'afficherFrais':
-
         include PATH_VIEWS . 'v_listeVisiteurs.php';
         include PATH_VIEWS . 'v_listeMoisValider.php';
         include PATH_VIEWS . 'v_validerFrais.php';
         break;
-
     case 'majFraisForfait':
-
         $lesFrais = filter_input_array(INPUT_POST, [
                     'lesFrais' => [
                         'filter' => FILTER_SANITIZE_NUMBER_INT,
                         'flags' => FILTER_REQUIRE_ARRAY
                     ]
                 ])['lesFrais'];
-
         $pdo->majFraisForfait($idVisiteur, $leMois, $lesFrais);
-
         $lesFraisForfait = $pdo->getLesFraisForfait($idVisiteur, $leMois);
-
         $lesInfosFicheFrais = $pdo->getLesInfosFicheFrais($idVisiteur, $leMois);
         $libEtat = $lesInfosFicheFrais['libEtat'];
         $montantValide = $lesInfosFicheFrais['montantValide'];
@@ -84,9 +75,7 @@ switch ($action) {
         include PATH_VIEWS . 'v_listeMoisValider.php';
         include PATH_VIEWS . 'v_validerFrais.php';
         break;
-
     case 'majFraisHorsForfait':
-
         $submitType = filter_input(INPUT_POST, 'submitType', FILTER_SANITIZE_FULL_SPECIAL_CHARS);
         switch ($submitType) {
             case 'corriger':
@@ -94,12 +83,9 @@ switch ($action) {
                 $lesFraisHorsD = filter_input(INPUT_POST, 'lesFraisHorsForfaitD', FILTER_SANITIZE_FULL_SPECIAL_CHARS);
                 $lesFraisHorsL = filter_input(INPUT_POST, 'lesFraisHorsForfaitL');
                 $lesFraisHorsM = filter_input(INPUT_POST, 'lesFraisHorsForfaitM', FILTER_SANITIZE_FULL_SPECIAL_CHARS);
-
                 $lesFraisHorsD = DateTime::createFromFormat('d/m/Y', $lesFraisHorsD);
                 $lesFraisHorsD = $lesFraisHorsD->format('Y-m-d');
-
                 $pdo->majFraisHorsForfait($idFraisHors, $lesFraisHorsD, $lesFraisHorsL, $lesFraisHorsM);
-
                 $lesFraisHorsForfait = $pdo->getLesFraisHorsForfait($idVisiteur, $leMois);
                 include PATH_VIEWS . 'v_listeVisiteurs.php';
                 include PATH_VIEWS . 'v_listeMoisValider.php';
@@ -109,7 +95,6 @@ switch ($action) {
                 $idFraisHors = filter_input(INPUT_POST, 'idFraisHors', FILTER_SANITIZE_FULL_SPECIAL_CHARS);
                 $libelleRefuse = filter_input(INPUT_POST, 'lesFraisHorsForfaitL', FILTER_SANITIZE_FULL_SPECIAL_CHARS);
                 $pdo->refuserFraisHorsForfait($idFraisHors, $libelleRefuse);
-
                 $lesFraisHorsForfait = $pdo->getLesFraisHorsForfait($idVisiteur, $leMois);
                 include PATH_VIEWS . 'v_listeVisiteurs.php';
                 include PATH_VIEWS . 'v_listeMoisValider.php';
@@ -117,9 +102,7 @@ switch ($action) {
                 break;
             case 'reporter':
                 $idFraisHors = filter_input(INPUT_POST, 'idFraisHors', FILTER_SANITIZE_FULL_SPECIAL_CHARS);
-
                 $pdo->reporterFraisHorsForfait($idFraisHors);
-
                 $lesFraisHorsForfait = $pdo->getLesFraisHorsForfait($idVisiteur, $leMois);
                 include PATH_VIEWS . 'v_listeVisiteurs.php';
                 include PATH_VIEWS . 'v_listeMoisValider.php';
@@ -127,11 +110,8 @@ switch ($action) {
                 break;
         }
         break;
-
     case 'validerFicheFrais':
-
         $pdo->majEtatFicheFrais($idVisiteur, $leMois, "VA");
-
         include PATH_VIEWS . 'v_listeVisiteurs.php';
         include PATH_VIEWS . 'v_listeMoisValider.php';
         include PATH_VIEWS . 'v_validerFrais.php';

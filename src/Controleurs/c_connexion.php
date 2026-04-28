@@ -36,14 +36,14 @@ switch ($action) {
             $nom = $visiteur['nom'];
             $prenom = $visiteur['prenom'];
             $role = "visiteur";
-            Utilitaires::connecter($id, $nom, $prenom,$role);
+            Utilitaires::connecter($id, $nom, $prenom, $role);
             header('Location: index.php');
-        }elseif (is_array($comptable) && password_verify($mdp, $pdo->getMdpComptable($login))){
+        } elseif (is_array($comptable) && password_verify($mdp, $pdo->getMdpComptable($login))){
             $id = $comptable['id'];
             $nom = $comptable['nom'];
             $prenom = $comptable['prenom'];
             $role = "comptable";
-            Utilitaires::connecter($id, $nom, $prenom,$role);
+            Utilitaires::connecter($id, $nom, $prenom, $role);
             header('Location: index.php');
         } else {
             Utilitaires::ajouterErreur('Login ou mot de passe incorrect');
