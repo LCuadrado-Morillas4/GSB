@@ -102,6 +102,96 @@ abstract class Utilitaires
         }
         return $annee . $mois;
     }
+    
+    /**
+     * Retourne le mois suivant, et retourne en Janvier si le mois est égal à 12 (Décembre).
+     * 
+     * @param String $date Date au format AAAAMM
+     * @return string Mois au format MM
+     */
+    public static function getMoisSuivant($date): string
+    {
+        $mois = substr($date, 4, 6);
+        if(strval($mois) == '12') 
+        {
+            $mois = '01';
+        }
+        else
+        {
+            // Convertir le mois en Integer, l'incrémenter de 1 et
+            // le reconvertir en String
+            $tempMois = intval($mois);
+            $tempMois = $tempMois + 1;
+            
+            // Si le mois commence normalement par un '0' (ex : '09'),
+            // le convertir en String et lui ajouter un '0' au début
+            // Ex : de '9' à '09'
+            if(strlen(strval($tempMois)) == 1)
+            {
+                $mois = strval('0' . $tempMois);
+            }
+            else
+            {
+                $mois = strval($tempMois);
+            }
+        }
+        return $mois;
+    }
+    
+    /**
+     * Retourne l'année suivante.
+     * 
+     * @param String $date Date au format AAAAMM
+     * @return string Année au format AAAA
+     */
+    public static function getAnneeSuivante($date): string
+    {
+        $annee = substr($date, 0, -2);
+        return strval(intval($annee + 1));
+    }
+    
+    /**
+     * Retourne la date suivant celle entrée en paramètre
+     * @param string $date
+     * @return string
+     */
+    public static function getDateSuivante($date): string
+    {
+        $annee = substr($date, 0, -2);
+        $mois = substr($date, 4, 6);
+        $mois = self::getMoisSuivant($date);
+        if(strval($mois) == '01')
+        {
+            $annee = self::getAnneeSuivante($date);
+        }
+        return $annee . $mois;
+    }
+    
+    /**
+     * Retourne, sous la forme d'une String, une date au format textuel complet, comme
+     * par exemple "Janvier 2026".
+     * @param string $date  Date au format AAAAMM
+     */
+    public static function getDateTextuelle($date):string
+    {
+        $annee = substr($date, 0, -2);
+        $nomsMois = array(
+            '01' => 'Janvier',
+            '02' => 'Février',
+            '03' => 'Mars',
+            '04' => 'Avril',
+            '05' => 'Mai',
+            '06' => 'Juin',
+            '07' => 'Juillet',
+            '08' => 'Août',
+            '09' => 'Septembre',
+            '10' => 'Octobre',
+            '11' => 'Novembre',
+            '12' => 'Décembre'
+        );    
+        $mois = substr($date, 4, 6);       
+        return $nomsMois[$mois] . ' ' . $annee;
+    }
 
     /* gestion des erreurs */
 

@@ -745,7 +745,7 @@ class PdoGsb {
                 . 'fichefrais.nbjustificatifs as nbJustificatifs, '
                 . 'fichefrais.montantvalide as montantValide, '
                 . 'etat.libelle as libEtat, '
-                . 'puissancevehicule.puissance as pVehicule '
+                . 'puissancevehicule.puissancevehicule as pVehicule '
                 . 'FROM fichefrais '
                 . 'INNER JOIN etat ON fichefrais.idetat = etat.id '
                 . 'INNER JOIN puissancevehicule ON fichefrais.idpuissancevehicule = puissancevehicule.id '
@@ -816,6 +816,96 @@ class PdoGsb {
         $requetePrepare->execute();
         $resultat = $requetePrepare->fetch();
         return $resultat['nbrPuissance'];
+    }
+    
+    public function majMontantFicheDeFrais($idVisiteur, $mois, $lesFraisForfait, $lesFraisHorsForfait) {
+        $montant = 0;
+    }
+    
+    /**
+     * Renvoie sous forme de tableau associatif le nom et le prénom du visiteur choisi
+     * 
+     * @param int $id ID du visiteur choisi
+     * 
+     * @return Renvoie sous la forme d'un tableau associatif le nom et le prénom du visiteur choisi
+     */
+    function getNomEtPrenomVisiteur($id):array
+    {
+        $requetePreparee = $this->connexion->prepare( 
+            'SELECT nom, prenom FROM visiteur WHERE id = :unId'
+        );
+        $requetePreparee->bindParam('unId', $id);
+        $requetePreparee->execute();
+        $resultat = $requetePreparee->fetch();
+        if($resultat === false)
+        {
+            return array();
+        }
+        else
+        {
+            return $resultat;
+        }
+    }
+    
+    /**
+     * Retourne, sous la forme d'un tableau associatif, tous les prix fixes
+     * pour les frais forfait enregistrés dans la base de données.
+     * @return array Prix fixes pour les frais forfait
+     */
+    public function getLesMontantsForfaitFixes():array
+    {
+        $requetePreparee = $this->connexion->prepare(
+            "SELECT * FROM fraisforfait"
+        );
+        $requetePreparee->execute();
+        return $requetePreparee->fetchAll();
+    }
+    
+    /**
+     * Retourne sous la forme d'un tableau associatif tous les types de véhicules disponibles
+     * pour la gestion des frais kilométriques affinée.
+     * @return array    Liste des véhicules disponibles
+     */
+    public function getLesMontantsKilometriques():array
+    {
+        $requetePrepareePrixKilometriques = $this->connexion->prepare(
+                'SELECT * FROM puissancevehicule'
+        );
+        
+        $requetePrepareePrixKilometriques->execute();
+        $resultatsRequetePreparee = $requetePrepareePrixKilometriques->fetchAll();
+        
+        return $resultatsRequetePreparee;
+    }
+    
+    /**
+     * Retourne (sous la forme d'un tableau associatif) le type de véhicule utilisé par le visiteur 
+     * pour ses frais kilométriques.
+     * 
+     * @param type $idVisiteur    ID du visiteur dont on souhaite obtenir le type de véhicule utilisé
+     * @param type $mois          Mois correspondant à la fiche de frais que l'on souhaite utiliser
+     */
+    public function getVehiculeUtilise($idVisiteur, $mois):array
+    {
+        $requetePreparee = $this->connexion->prepare(
+                "SELECT id, puissancevehicule, prixkilometrique AS prix_km "
+                . "FROM puissancevehicule "
+                . "INNER JOIN fichefrais ON puissancevehicule.id = fichefrais.idpuissancevehicule "
+                . "WHERE fichefrais.idvisiteur = :unIdVisiteur AND fichefrais.mois = :unMois"
+        );
+        $requetePreparee->bindParam(':unIdVisiteur', $idVisiteur);
+        $requetePreparee->bindParam(':unMois', $mois);
+        $requetePreparee->execute();
+        
+        $resultatRequetePreparee = $requetePreparee->fetch();
+        if($resultatRequetePreparee == false)
+        {
+            return array();
+        }
+        else
+        {
+            return $resultatRequetePreparee;
+        }
     }
     
 }
