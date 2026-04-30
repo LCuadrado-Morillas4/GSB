@@ -111,7 +111,14 @@ switch ($action) {
         }
         break;
     case 'validerFicheFrais':
-        $pdo->majEtatFicheFrais($idVisiteur, $leMois, "VA");
+        $number = filter_input(INPUT_POST, 'number', FILTER_SANITIZE_FULL_SPECIAL_CHARS);
+        $etat = "VA";
+        $pdo->majNbJustificatifs($idVisiteur, $leMois, $number);
+        $pdo->majEtatFicheFrais($idVisiteur, $leMois, $etat);
+        $pdo->MajMontantValide($idVisiteur, $leMois);
+
+        $lesInfosFicheFrais = $pdo->getLesInfosFicheFrais($idVisiteur, $leMois);
+        $nbJustificatifs = $lesInfosFicheFrais['nbJustificatifs'];
         include PATH_VIEWS . 'v_listeVisiteurs.php';
         include PATH_VIEWS . 'v_listeMoisValider.php';
         include PATH_VIEWS . 'v_validerFrais.php';

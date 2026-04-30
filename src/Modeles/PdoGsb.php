@@ -504,18 +504,18 @@ class PdoGsb {
      * @return le mois suivant 
      */
     public function moisSuivant($mois): string {
-        
+
         $anneeActuel = substr($mois, 0, 4);
         $moisActuel = substr($mois, -2);
         $moisFinal = "";
-        
-        if($moisActuel == '12') {
-            $moisFinal = (intval($anneeActuel) + 1). '01';
+
+        if ($moisActuel == '12') {
+            $moisFinal = (intval($anneeActuel) + 1) . '01';
         } else {
-            if(strlen(strval(intval($moisActuel) + 1)) < 2) {
-               $moisFinal = $anneeActuel.'0'.(intval($moisActuel) + 1);
+            if (strlen(strval(intval($moisActuel) + 1)) < 2) {
+                $moisFinal = $anneeActuel . '0' . (intval($moisActuel) + 1);
             } else {
-                $moisFinal = $anneeActuel.(intval($moisActuel) + 1);
+                $moisFinal = $anneeActuel . (intval($moisActuel) + 1);
             }
         }
         return $moisFinal;
@@ -803,7 +803,7 @@ class PdoGsb {
         $requetePrepare->bindParam(':unePuissance', $puissance, PDO::PARAM_INT);
         $requetePrepare->execute();
     }
-    
+
     public function isSetPuissanceVehicule($idVisiteur, $mois): int {
         $requetePrepare = $this->connexion->prepare(
                 'SELECT COUNT(fichefrais.idpuissancevehicule) AS nbrPuissance '
@@ -817,11 +817,11 @@ class PdoGsb {
         $resultat = $requetePrepare->fetch();
         return $resultat['nbrPuissance'];
     }
-    
+
     public function majMontantFicheDeFrais($idVisiteur, $mois, $lesFraisForfait, $lesFraisHorsForfait) {
         $montant = 0;
     }
-    
+
     /**
      * Renvoie sous forme de tableau associatif le nom et le prénom du visiteur choisi
      * 
@@ -829,55 +829,49 @@ class PdoGsb {
      * 
      * @return Renvoie sous la forme d'un tableau associatif le nom et le prénom du visiteur choisi
      */
-    function getNomEtPrenomVisiteur($id):array
-    {
-        $requetePreparee = $this->connexion->prepare( 
-            'SELECT nom, prenom FROM visiteur WHERE id = :unId'
+    function getNomEtPrenomVisiteur($id): array {
+        $requetePreparee = $this->connexion->prepare(
+                'SELECT nom, prenom FROM visiteur WHERE id = :unId'
         );
         $requetePreparee->bindParam('unId', $id);
         $requetePreparee->execute();
         $resultat = $requetePreparee->fetch();
-        if($resultat === false)
-        {
+        if ($resultat === false) {
             return array();
-        }
-        else
-        {
+        } else {
             return $resultat;
         }
     }
-    
+
     /**
      * Retourne, sous la forme d'un tableau associatif, tous les prix fixes
      * pour les frais forfait enregistrés dans la base de données.
      * @return array Prix fixes pour les frais forfait
      */
-    public function getLesMontantsForfaitFixes():array
-    {
+    public function getLesMontantsForfaitFixes(): array {
         $requetePreparee = $this->connexion->prepare(
-            "SELECT * FROM fraisforfait"
+                "SELECT * FROM fraisforfait"
         );
         $requetePreparee->execute();
         return $requetePreparee->fetchAll();
     }
-    
+
     /**
      * Retourne sous la forme d'un tableau associatif tous les types de véhicules disponibles
      * pour la gestion des frais kilométriques affinée.
      * @return array    Liste des véhicules disponibles
      */
-    public function getLesMontantsKilometriques():array
-    {
+    public function getLesMontantsKilometriques(): array {
         $requetePrepareePrixKilometriques = $this->connexion->prepare(
                 'SELECT * FROM puissancevehicule'
         );
-        
+
         $requetePrepareePrixKilometriques->execute();
         $resultatsRequetePreparee = $requetePrepareePrixKilometriques->fetchAll();
-        
+
         return $resultatsRequetePreparee;
     }
-    
+
     /**
      * Retourne (sous la forme d'un tableau associatif) le type de véhicule utilisé par le visiteur 
      * pour ses frais kilométriques.
@@ -885,8 +879,7 @@ class PdoGsb {
      * @param type $idVisiteur    ID du visiteur dont on souhaite obtenir le type de véhicule utilisé
      * @param type $mois          Mois correspondant à la fiche de frais que l'on souhaite utiliser
      */
-    public function getVehiculeUtilise($idVisiteur, $mois):array
-    {
+    public function getVehiculeUtilise($idVisiteur, $mois): array {
         $requetePreparee = $this->connexion->prepare(
                 "SELECT id, puissancevehicule, prixkilometrique AS prix_km "
                 . "FROM puissancevehicule "
@@ -896,16 +889,67 @@ class PdoGsb {
         $requetePreparee->bindParam(':unIdVisiteur', $idVisiteur);
         $requetePreparee->bindParam(':unMois', $mois);
         $requetePreparee->execute();
-        
+
         $resultatRequetePreparee = $requetePreparee->fetch();
-        if($resultatRequetePreparee == false)
-        {
+        if ($resultatRequetePreparee == false) {
             return array();
-        }
-        else
-        {
+        } else {
             return $resultatRequetePreparee;
         }
     }
-    
+
+    public function MajMontantValide($idVisiteur, $mois): void {
+        // 1. Calcul des frais forfaitisés CLASSIQUES (tout sauf les KM)
+        $reqForfait = $this->connexion->prepare(
+                "SELECT SUM(l.quantite * f.montant) as totalForfait 
+             FROM lignefraisforfait l 
+             JOIN fraisforfait f ON l.idfraisforfait = f.id 
+             WHERE l.idvisiteur = :idVisiteur AND l.mois = :mois AND l.idfraisforfait != 'KM'"
+        );
+        $reqForfait->bindParam(':idVisiteur', $idVisiteur, PDO::PARAM_STR);
+        $reqForfait->bindParam(':mois', $mois, PDO::PARAM_STR);
+        $reqForfait->execute();
+        $resForfait = $reqForfait->fetch();
+        $totalForfait = $resForfait['totalForfait'] ? $resForfait['totalForfait'] : 0;
+
+        // 2. Calcul des frais KILOMÉTRIQUES (basés sur la puissance du véhicule du visiteur)
+        $reqKM = $this->connexion->prepare(
+                "SELECT SUM(l.quantite * p.prixKilometrique) as totalKM 
+             FROM lignefraisforfait l 
+             JOIN fichefrais f ON f.idvisiteur = l.idvisiteur
+             JOIN puissancevehicule p ON p.id = f.idpuissancevehicule 
+             WHERE l.idvisiteur = :idVisiteur AND l.mois = :mois AND l.idfraisforfait = 'KM'"
+        );
+        $reqKM->bindParam(':idVisiteur', $idVisiteur, PDO::PARAM_STR);
+        $reqKM->bindParam(':mois', $mois, PDO::PARAM_STR);
+        $reqKM->execute();
+        $resKM = $reqKM->fetch();
+        $totalKM = $resKM['totalKM'] ? $resKM['totalKM'] : 0;
+
+        // 3. Calcul des frais HORS FORFAIT (en excluant ceux qui ont été refusés)
+        $reqHorsForfait = $this->connexion->prepare(
+                "SELECT SUM(montant) as totalHorsForfait 
+             FROM lignefraishorsforfait 
+             WHERE idvisiteur = :idVisiteur AND mois = :mois AND libelle NOT LIKE 'REFUSE %'"
+        );
+        $reqHorsForfait->bindParam(':idVisiteur', $idVisiteur, PDO::PARAM_STR);
+        $reqHorsForfait->bindParam(':mois', $mois, PDO::PARAM_STR);
+        $reqHorsForfait->execute();
+        $resHorsForfait = $reqHorsForfait->fetch();
+        $totalHorsForfait = $resHorsForfait['totalHorsForfait'] ? $resHorsForfait['totalHorsForfait'] : 0;
+
+        // 4. Addition globale
+        $montantGlobal = $totalForfait + $totalKM + $totalHorsForfait;
+
+        // 5. Mise à jour de la table fichefrais
+        $reqMaj = $this->connexion->prepare(
+                "UPDATE fichefrais 
+             SET montantvalide = :montantGlobal 
+             WHERE idvisiteur = :idVisiteur AND mois = :mois"
+        );
+        $reqMaj->bindParam(':montantGlobal', $montantGlobal, PDO::PARAM_STR);
+        $reqMaj->bindParam(':idVisiteur', $idVisiteur, PDO::PARAM_STR);
+        $reqMaj->bindParam(':mois', $mois, PDO::PARAM_STR);
+        $reqMaj->execute();
+    }
 }
