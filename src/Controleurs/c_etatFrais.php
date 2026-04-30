@@ -15,7 +15,7 @@
  * @link      http://www.reseaucerta.org Contexte « Laboratoire GSB »
  */
 use Outils\Utilitaires;
-use Outils\FPDF;
+use Outils\fpdf;
 
 $action = filter_input(INPUT_GET, 'action', FILTER_SANITIZE_FULL_SPECIAL_CHARS);
 $idVisiteur = $_SESSION['id'];
@@ -49,9 +49,11 @@ switch ($action) {
         $nbJustificatifs = $lesInfosFicheFrais['nbJustificatifs'];
         $dateModif = Utilitaires::dateAnglaisVersFrancais($lesInfosFicheFrais['dateModif']);
         include PATH_VIEWS . 'v_etatFrais.php';
+        break;
     case 'genererPDF':
-        if (ob_get_length())
+        if (ob_get_length()) {
             ob_end_clean();
+        }
 
         $mois = filter_input(INPUT_POST, 'lstMois', FILTER_SANITIZE_FULL_SPECIAL_CHARS);
         $matricule = $idVisiteur;
@@ -242,7 +244,7 @@ switch ($action) {
         header('Content-Type: application/pdf');
         header('Content-Disposition: attachment; filename="' . $nomFichier . '"');
         header('Content-Length: ' . filesize($cheminAvecDossier));
-        //readfile($cheminAvecDossier);
+        readfile($cheminAvecDossier);
 
         exit;
         break;
